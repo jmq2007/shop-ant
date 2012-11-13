@@ -33,12 +33,12 @@
             this.maintool = new System.Windows.Forms.ToolStrip();
             this.maintool_btn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.sale_btn = new System.Windows.Forms.ToolStripButton();
+            this.buy_btn = new System.Windows.Forms.ToolStripButton();
+            this.huose_btn = new System.Windows.Forms.ToolStripButton();
+            this.search_btn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.help_btn = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.maintool.SuspendLayout();
             this.SuspendLayout();
@@ -59,12 +59,12 @@
             this.maintool.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.maintool_btn,
             this.toolStripSeparator1,
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton5,
-            this.toolStripButton3,
+            this.sale_btn,
+            this.buy_btn,
+            this.huose_btn,
+            this.search_btn,
             this.toolStripSeparator2,
-            this.toolStripButton4});
+            this.help_btn});
             this.maintool.Location = new System.Drawing.Point(0, 0);
             this.maintool.Name = "maintool";
             this.maintool.Size = new System.Drawing.Size(752, 39);
@@ -85,50 +85,52 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
-            // toolStripButton1
+            // sale_btn
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(68, 36);
-            this.toolStripButton1.Text = "销售";
+            this.sale_btn.Image = ((System.Drawing.Image)(resources.GetObject("sale_btn.Image")));
+            this.sale_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.sale_btn.Name = "sale_btn";
+            this.sale_btn.Size = new System.Drawing.Size(68, 36);
+            this.sale_btn.Text = "销售";
+            this.sale_btn.Click += new System.EventHandler(this.sale_btn_Click);
             // 
-            // toolStripButton2
+            // buy_btn
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(68, 36);
-            this.toolStripButton2.Text = "进货";
+            this.buy_btn.Image = ((System.Drawing.Image)(resources.GetObject("buy_btn.Image")));
+            this.buy_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buy_btn.Name = "buy_btn";
+            this.buy_btn.Size = new System.Drawing.Size(68, 36);
+            this.buy_btn.Text = "进货";
+            this.buy_btn.Click += new System.EventHandler(this.buy_btn_Click);
             // 
-            // toolStripButton3
+            // huose_btn
             // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(68, 36);
-            this.toolStripButton3.Text = "统计";
+            this.huose_btn.Image = ((System.Drawing.Image)(resources.GetObject("huose_btn.Image")));
+            this.huose_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.huose_btn.Name = "huose_btn";
+            this.huose_btn.Size = new System.Drawing.Size(92, 36);
+            this.huose_btn.Text = "库存管理";
+            // 
+            // search_btn
+            // 
+            this.search_btn.Image = ((System.Drawing.Image)(resources.GetObject("search_btn.Image")));
+            this.search_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.search_btn.Name = "search_btn";
+            this.search_btn.Size = new System.Drawing.Size(68, 36);
+            this.search_btn.Text = "统计";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
-            // toolStripButton4
+            // help_btn
             // 
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(68, 36);
-            this.toolStripButton4.Text = "帮助";
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(92, 36);
-            this.toolStripButton5.Text = "库存管理";
+            this.help_btn.Image = ((System.Drawing.Image)(resources.GetObject("help_btn.Image")));
+            this.help_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.help_btn.Name = "help_btn";
+            this.help_btn.Size = new System.Drawing.Size(68, 36);
+            this.help_btn.Text = "帮助";
             // 
             // statusStrip1
             // 
@@ -162,12 +164,12 @@
         private System.Windows.Forms.ToolStrip maintool;
         private System.Windows.Forms.ToolStripButton maintool_btn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton sale_btn;
+        private System.Windows.Forms.ToolStripButton buy_btn;
+        private System.Windows.Forms.ToolStripButton search_btn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton help_btn;
+        private System.Windows.Forms.ToolStripButton huose_btn;
         private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }

@@ -30,7 +30,23 @@ namespace jck_new
 
         private void maintool_btn_Click(object sender, EventArgs e)
         {
-            
+            if (mainToolWin == null || mainToolWin.IsDisposed)
+                mainToolWin = new MainToolWindow();
+            mainToolWin.Show(this.dockPanel1, DockState.DockLeft);
+        }
+
+        private void sale_btn_Click(object sender, EventArgs e)
+        {
+            if (saleForm == null || saleForm.IsDisposed)
+               saleForm = new SaleForm();
+            saleForm.Show(this.dockPanel1);
+        }
+
+        private void buy_btn_Click(object sender, EventArgs e)
+        {
+            if (buyForm == null || buyForm.IsDisposed)
+                buyForm = new BuyForm();
+            buyForm.Show(this.dockPanel1);
         }
     }
 }
