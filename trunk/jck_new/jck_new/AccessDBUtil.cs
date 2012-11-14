@@ -11,7 +11,7 @@ namespace Common
 	/// </summary>
 	public class AccessDBUtil
 	{
-		private static String connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=product.mdb";
+        private static String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database1.accdb";
 		private AccessDBUtil()
 		{
 		}
