@@ -26,6 +26,8 @@ namespace jck_new
             mainToolWin.Show(this.dockPanel1, DockState.DockLeft);
             saleForm.Show(this.dockPanel1);
             buyForm.Show(this.dockPanel1);
+
+
         }
 
         private void maintool_btn_Click(object sender, EventArgs e)
