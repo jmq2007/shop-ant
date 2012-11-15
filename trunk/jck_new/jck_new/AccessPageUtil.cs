@@ -12,7 +12,7 @@ namespace Common
 	/// </summary>
 	public class AccessPageUtil
 	{
-		public const int PAGE_SIZE=14;
+		public const int PAGE_SIZE=10;
 		private AccessPageUtil()
 		{
 		}

@@ -37,6 +37,11 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.firstP_btn = new System.Windows.Forms.Button();
+            this.prevP_btn = new System.Windows.Forms.Button();
+            this.nextP_btn = new System.Windows.Forms.Button();
+            this.lastP_btn = new System.Windows.Forms.Button();
+            this.labelMsg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listView1
@@ -52,9 +57,9 @@
             this.columnHeader8});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(12, 106);
+            this.listView1.Location = new System.Drawing.Point(12, 86);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(627, 203);
+            this.listView1.Size = new System.Drawing.Size(627, 189);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -95,16 +100,71 @@
             this.columnHeader8.Text = "备注";
             this.columnHeader8.Width = 100;
             // 
+            // firstP_btn
+            // 
+            this.firstP_btn.Location = new System.Drawing.Point(435, 281);
+            this.firstP_btn.Name = "firstP_btn";
+            this.firstP_btn.Size = new System.Drawing.Size(25, 28);
+            this.firstP_btn.TabIndex = 1;
+            this.firstP_btn.Text = "|<";
+            this.firstP_btn.UseVisualStyleBackColor = true;
+            this.firstP_btn.Click += new System.EventHandler(this.firstP_btn_Click);
+            // 
+            // prevP_btn
+            // 
+            this.prevP_btn.Location = new System.Drawing.Point(466, 281);
+            this.prevP_btn.Name = "prevP_btn";
+            this.prevP_btn.Size = new System.Drawing.Size(25, 28);
+            this.prevP_btn.TabIndex = 2;
+            this.prevP_btn.Text = "<";
+            this.prevP_btn.UseVisualStyleBackColor = true;
+            this.prevP_btn.Click += new System.EventHandler(this.prevP_btn_Click);
+            // 
+            // nextP_btn
+            // 
+            this.nextP_btn.Location = new System.Drawing.Point(515, 281);
+            this.nextP_btn.Name = "nextP_btn";
+            this.nextP_btn.Size = new System.Drawing.Size(25, 28);
+            this.nextP_btn.TabIndex = 3;
+            this.nextP_btn.Text = ">";
+            this.nextP_btn.UseVisualStyleBackColor = true;
+            this.nextP_btn.Click += new System.EventHandler(this.nextP_btn_Click);
+            // 
+            // lastP_btn
+            // 
+            this.lastP_btn.Location = new System.Drawing.Point(546, 281);
+            this.lastP_btn.Name = "lastP_btn";
+            this.lastP_btn.Size = new System.Drawing.Size(25, 28);
+            this.lastP_btn.TabIndex = 4;
+            this.lastP_btn.Text = ">|";
+            this.lastP_btn.UseVisualStyleBackColor = true;
+            this.lastP_btn.Click += new System.EventHandler(this.lastP_btn_Click);
+            // 
+            // labelMsg
+            // 
+            this.labelMsg.AutoSize = true;
+            this.labelMsg.Location = new System.Drawing.Point(11, 286);
+            this.labelMsg.Name = "labelMsg";
+            this.labelMsg.Size = new System.Drawing.Size(29, 12);
+            this.labelMsg.TabIndex = 5;
+            this.labelMsg.Text = "数量";
+            // 
             // BuyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 341);
+            this.ClientSize = new System.Drawing.Size(651, 317);
+            this.Controls.Add(this.labelMsg);
+            this.Controls.Add(this.lastP_btn);
+            this.Controls.Add(this.nextP_btn);
+            this.Controls.Add(this.prevP_btn);
+            this.Controls.Add(this.firstP_btn);
             this.Controls.Add(this.listView1);
             this.Name = "BuyForm";
             this.TabText = "进货";
             this.Text = "进货";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -119,5 +179,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.Button firstP_btn;
+        private System.Windows.Forms.Button prevP_btn;
+        private System.Windows.Forms.Button nextP_btn;
+        private System.Windows.Forms.Button lastP_btn;
+        private System.Windows.Forms.Label labelMsg;
     }
 }

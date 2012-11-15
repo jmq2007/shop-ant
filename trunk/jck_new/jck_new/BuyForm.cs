@@ -29,6 +29,11 @@ namespace jck_new
             {
                 AddProduct_buy(p);
             }
+            this.labelMsg.Text = String.Format("共{0:d}条记录, 每页{1:d}条, {2:d}/{3:d}页",
+                                        page.TotalRecord, page.PageSize, page.CurPageIndex + 1, page.TotalPage);
+
+            curPageIndex = page.CurPageIndex;
+            totalPage = page.TotalPage;
         }
         private void AddProduct_buy(Product_buy p)
         {
@@ -40,6 +45,80 @@ namespace jck_new
             lvi.SubItems.Add(p.Price_sale.ToString());
             lvi.SubItems.Add(p.BuyDate.ToString());
             lvi.SubItems.Add(p.Other.ToString());
+        }
+
+        private void nextP_btn_Click(object sender, EventArgs e)
+        {
+            this.listView1.Items.Clear();
+            curPageIndex++;
+            Page page = PageQueryDao.getProducts_buy(curPageIndex);
+            List<Product_buy> ls = (List<Product_buy>)page.ValueList;
+            foreach (Product_buy p in ls)
+            {
+                AddProduct_buy(p);
+                //Debug.WriteLine(p.Id);
+            }
+
+            this.labelMsg.Text = String.Format("共{0:d}条记录, 每页{1:d}条, {2:d}/{3:d}页",
+                                        page.TotalRecord, page.PageSize, page.CurPageIndex + 1, page.TotalPage);
+
+            curPageIndex = page.CurPageIndex;
+            totalPage = page.TotalPage;
+        }
+
+        private void prevP_btn_Click(object sender, EventArgs e)
+        {
+            this.listView1.Items.Clear();
+            curPageIndex--;
+            Page page = PageQueryDao.getProducts_buy(curPageIndex);
+            List<Product_buy> ls = (List<Product_buy>)page.ValueList;
+            foreach (Product_buy p in ls)
+            {
+                AddProduct_buy(p);
+                //Debug.WriteLine(p.Id);
+            }
+
+            this.labelMsg.Text = String.Format("共{0:d}条记录, 每页{1:d}条, {2:d}/{3:d}页",
+                                        page.TotalRecord, page.PageSize, page.CurPageIndex + 1, page.TotalPage);
+
+            curPageIndex = page.CurPageIndex;
+            totalPage = page.TotalPage;
+        }
+
+        private void lastP_btn_Click(object sender, EventArgs e)
+        {
+            this.listView1.Items.Clear();
+            Page page = PageQueryDao.getProducts_buy(totalPage - 1);
+            List<Product_buy> ls = (List<Product_buy>)page.ValueList;
+            foreach (Product_buy p in ls)
+            {
+                AddProduct_buy(p);
+                //Debug.WriteLine(p.Id);
+            }
+
+            this.labelMsg.Text = String.Format("共{0:d}条记录, 每页{1:d}条记录, {2:d}/{3:d}页",
+                                        page.TotalRecord, page.PageSize, page.CurPageIndex + 1, page.TotalPage);
+
+            curPageIndex = page.CurPageIndex;
+            totalPage = page.TotalPage;
+        }
+
+        private void firstP_btn_Click(object sender, EventArgs e)
+        {
+            this.listView1.Items.Clear();
+            Page page = PageQueryDao.getProducts_buy(0);
+            List<Product_buy> ls = (List<Product_buy>)page.ValueList;
+            foreach (Product_buy p in ls)
+            {
+                AddProduct_buy(p);
+                //Debug.WriteLine(p.Id);
+            }
+
+            this.labelMsg.Text = String.Format("共{0:d}条记录, 每页{1:d}条, {2:d}/{3:d}页",
+                                        page.TotalRecord, page.PageSize, page.CurPageIndex + 1, page.TotalPage);
+
+            curPageIndex = page.CurPageIndex;
+            totalPage = page.TotalPage;
         }
     }
 }
