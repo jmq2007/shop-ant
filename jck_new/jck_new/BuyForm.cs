@@ -120,5 +120,32 @@ namespace jck_new
             curPageIndex = page.CurPageIndex;
             totalPage = page.TotalPage;
         }
+
+        private void add_btn_Click(object sender, EventArgs e)
+        {
+            Product_buy p = new Product_buy();
+            p.Code = this.txt_code.Text.Trim();
+            p.Name = this.txt_name.Text.Trim();
+            p.Amount = Int32.Parse(this.num_amount.Text.Trim());
+            p.Price = Double.Parse(this.txt_price.Text.Trim());
+            p.Price_sale = Double.Parse(this.txt_saleprice.Text.Trim());
+            p.BuyDate = DateTime.Now;
+            p.Other = this.txt_other.Text.Trim();
+            int id = ProductDao.insert(p);
+            //
+            p = ProductDao.getById(id);
+            AddProduct(p);		
+        }
+        private void AddProduct(Product_buy p)
+        {
+            ListViewItem lvi = this.listView1.Items.Add(p.Id.ToString());
+            lvi.SubItems.Add(p.Code.ToString());
+            lvi.SubItems.Add(p.Name.ToString());
+            lvi.SubItems.Add(p.Amount.ToString());
+            lvi.SubItems.Add(p.Price.ToString());
+            lvi.SubItems.Add(p.Price_sale.ToString());
+            lvi.SubItems.Add(p.BuyDate.ToString());
+            lvi.SubItems.Add(p.Other.ToString());
+        }
     }
 }

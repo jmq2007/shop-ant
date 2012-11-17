@@ -77,7 +77,7 @@
             this.maintool_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.maintool_btn.Name = "maintool_btn";
             this.maintool_btn.Size = new System.Drawing.Size(80, 36);
-            this.maintool_btn.Text = "导航条";
+            this.maintool_btn.Text = "搜索栏";
             this.maintool_btn.Click += new System.EventHandler(this.maintool_btn_Click);
             // 
             // toolStripSeparator1

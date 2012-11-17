@@ -42,6 +42,20 @@
             this.nextP_btn = new System.Windows.Forms.Button();
             this.lastP_btn = new System.Windows.Forms.Button();
             this.labelMsg = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.add_btn = new System.Windows.Forms.Button();
+            this.txt_code = new System.Windows.Forms.TextBox();
+            this.num_amount = new System.Windows.Forms.NumericUpDown();
+            this.txt_saleprice = new System.Windows.Forms.TextBox();
+            this.txt_name = new System.Windows.Forms.TextBox();
+            this.txt_price = new System.Windows.Forms.TextBox();
+            this.txt_other = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.num_amount)).BeginInit();
             this.SuspendLayout();
             // 
             // listView1
@@ -57,9 +71,9 @@
             this.columnHeader8});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(12, 86);
+            this.listView1.Location = new System.Drawing.Point(12, 70);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(627, 189);
+            this.listView1.Size = new System.Drawing.Size(627, 205);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -149,11 +163,130 @@
             this.labelMsg.TabIndex = 5;
             this.labelMsg.Text = "数量";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 12);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "条码:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 12);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "名称:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(168, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "数量:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(168, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 12);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "进价:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(315, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 12);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "售价:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(315, 47);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 12);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "备注:";
+            // 
+            // add_btn
+            // 
+            this.add_btn.Location = new System.Drawing.Point(477, 41);
+            this.add_btn.Name = "add_btn";
+            this.add_btn.Size = new System.Drawing.Size(75, 23);
+            this.add_btn.TabIndex = 12;
+            this.add_btn.Text = "添加进货";
+            this.add_btn.UseVisualStyleBackColor = true;
+            this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
+            // 
+            // txt_code
+            // 
+            this.txt_code.Location = new System.Drawing.Point(54, 10);
+            this.txt_code.Name = "txt_code";
+            this.txt_code.Size = new System.Drawing.Size(100, 21);
+            this.txt_code.TabIndex = 13;
+            // 
+            // num_amount
+            // 
+            this.num_amount.Location = new System.Drawing.Point(209, 11);
+            this.num_amount.Name = "num_amount";
+            this.num_amount.Size = new System.Drawing.Size(100, 21);
+            this.num_amount.TabIndex = 14;
+            // 
+            // txt_saleprice
+            // 
+            this.txt_saleprice.Location = new System.Drawing.Point(356, 11);
+            this.txt_saleprice.Name = "txt_saleprice";
+            this.txt_saleprice.Size = new System.Drawing.Size(100, 21);
+            this.txt_saleprice.TabIndex = 15;
+            // 
+            // txt_name
+            // 
+            this.txt_name.Location = new System.Drawing.Point(54, 43);
+            this.txt_name.Name = "txt_name";
+            this.txt_name.Size = new System.Drawing.Size(100, 21);
+            this.txt_name.TabIndex = 16;
+            // 
+            // txt_price
+            // 
+            this.txt_price.Location = new System.Drawing.Point(209, 43);
+            this.txt_price.Name = "txt_price";
+            this.txt_price.Size = new System.Drawing.Size(100, 21);
+            this.txt_price.TabIndex = 17;
+            // 
+            // txt_other
+            // 
+            this.txt_other.Location = new System.Drawing.Point(357, 43);
+            this.txt_other.Name = "txt_other";
+            this.txt_other.Size = new System.Drawing.Size(100, 21);
+            this.txt_other.TabIndex = 18;
+            // 
             // BuyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 317);
+            this.Controls.Add(this.txt_other);
+            this.Controls.Add(this.txt_price);
+            this.Controls.Add(this.txt_name);
+            this.Controls.Add(this.txt_saleprice);
+            this.Controls.Add(this.num_amount);
+            this.Controls.Add(this.txt_code);
+            this.Controls.Add(this.add_btn);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelMsg);
             this.Controls.Add(this.lastP_btn);
             this.Controls.Add(this.nextP_btn);
@@ -163,6 +296,7 @@
             this.Name = "BuyForm";
             this.TabText = "进货";
             this.Text = "进货";
+            ((System.ComponentModel.ISupportInitialize)(this.num_amount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +318,18 @@
         private System.Windows.Forms.Button nextP_btn;
         private System.Windows.Forms.Button lastP_btn;
         private System.Windows.Forms.Label labelMsg;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button add_btn;
+        private System.Windows.Forms.TextBox txt_code;
+        private System.Windows.Forms.NumericUpDown num_amount;
+        private System.Windows.Forms.TextBox txt_saleprice;
+        private System.Windows.Forms.TextBox txt_name;
+        private System.Windows.Forms.TextBox txt_price;
+        private System.Windows.Forms.TextBox txt_other;
     }
 }

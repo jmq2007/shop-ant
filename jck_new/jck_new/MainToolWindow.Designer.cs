@@ -42,8 +42,8 @@
             this.HideOnClose = true;
             this.Name = "MainToolWindow";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockLeft;
-            this.TabText = "工具窗口";
-            this.Text = "工具窗口";
+            this.TabText = "搜索窗口";
+            this.Text = "搜索窗口";
             this.ResumeLayout(false);
 
         }
