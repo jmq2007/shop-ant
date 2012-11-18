@@ -46,7 +46,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WeifenLuo.WinFormsUI.Docking">
-      <HintPath>..\..\..\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Desktop\jck_new\jck_new\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +57,18 @@
     </Compile>
     <Compile Include="BuyForm.Designer.cs">
       <DependentUpon>BuyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm.Designer.cs">
+      <DependentUpon>HelpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KcForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KcForm.Designer.cs">
+      <DependentUpon>KcForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -82,8 +94,20 @@
     <Compile Include="SaleForm.Designer.cs">
       <DependentUpon>SaleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TjForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TjForm.Designer.cs">
+      <DependentUpon>TjForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BuyForm.resx">
       <DependentUpon>BuyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm.resx">
+      <DependentUpon>HelpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KcForm.resx">
+      <DependentUpon>KcForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -103,6 +127,9 @@
     </Compile>
     <EmbeddedResource Include="SaleForm.resx">
       <DependentUpon>SaleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TjForm.resx">
+      <DependentUpon>TjForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">

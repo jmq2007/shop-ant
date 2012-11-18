@@ -17,6 +17,9 @@ namespace jck_new
         private MainToolWindow mainToolWin = new MainToolWindow();
         private SaleForm saleForm = new SaleForm();
         private BuyForm buyForm = new BuyForm();
+        private TjForm tjForm = new TjForm();
+        private KcForm kcForm = new KcForm();
+        private HelpForm helpForm = new HelpForm();
 
         #endregion
         public MainForm()
@@ -25,7 +28,7 @@ namespace jck_new
 
             mainToolWin.Show(this.dockPanel1, DockState.DockLeft);
             saleForm.Show(this.dockPanel1);
-            buyForm.Show(this.dockPanel1);
+            //buyForm.Show(this.dockPanel1);
 
 
         }
@@ -49,6 +52,27 @@ namespace jck_new
             if (buyForm == null || buyForm.IsDisposed)
                 buyForm = new BuyForm();
             buyForm.Show(this.dockPanel1);
+        }
+
+        private void kc_btn_Click(object sender, EventArgs e)
+        {
+            if (kcForm == null || kcForm.IsDisposed)
+                kcForm = new KcForm();
+            kcForm.Show(this.dockPanel1);
+        }
+
+        private void tj_btn_Click(object sender, EventArgs e)
+        {
+            if (tjForm == null || tjForm.IsDisposed)
+                tjForm = new TjForm();
+            tjForm.Show(this.dockPanel1);
+        }
+
+        private void help_btn_Click(object sender, EventArgs e)
+        {
+            if (helpForm == null || helpForm.IsDisposed)
+                helpForm = new HelpForm();
+            helpForm.Show(this.dockPanel1);
         }
     }
 }

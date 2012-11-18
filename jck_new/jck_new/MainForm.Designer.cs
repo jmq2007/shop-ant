@@ -35,8 +35,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.sale_btn = new System.Windows.Forms.ToolStripButton();
             this.buy_btn = new System.Windows.Forms.ToolStripButton();
-            this.huose_btn = new System.Windows.Forms.ToolStripButton();
-            this.search_btn = new System.Windows.Forms.ToolStripButton();
+            this.kc_btn = new System.Windows.Forms.ToolStripButton();
+            this.tj_btn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.help_btn = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -50,7 +50,7 @@
             this.dockPanel1.Location = new System.Drawing.Point(0, 0);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.RightToLeftLayout = true;
-            this.dockPanel1.Size = new System.Drawing.Size(868, 403);
+            this.dockPanel1.Size = new System.Drawing.Size(904, 402);
             this.dockPanel1.TabIndex = 1;
             // 
             // maintool
@@ -61,13 +61,13 @@
             this.toolStripSeparator1,
             this.sale_btn,
             this.buy_btn,
-            this.huose_btn,
-            this.search_btn,
+            this.kc_btn,
+            this.tj_btn,
             this.toolStripSeparator2,
             this.help_btn});
             this.maintool.Location = new System.Drawing.Point(0, 0);
             this.maintool.Name = "maintool";
-            this.maintool.Size = new System.Drawing.Size(868, 39);
+            this.maintool.Size = new System.Drawing.Size(904, 39);
             this.maintool.TabIndex = 4;
             this.maintool.Text = "toolStrip1";
             // 
@@ -103,21 +103,23 @@
             this.buy_btn.Text = "进货";
             this.buy_btn.Click += new System.EventHandler(this.buy_btn_Click);
             // 
-            // huose_btn
+            // kc_btn
             // 
-            this.huose_btn.Image = ((System.Drawing.Image)(resources.GetObject("huose_btn.Image")));
-            this.huose_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.huose_btn.Name = "huose_btn";
-            this.huose_btn.Size = new System.Drawing.Size(92, 36);
-            this.huose_btn.Text = "库存管理";
+            this.kc_btn.Image = ((System.Drawing.Image)(resources.GetObject("kc_btn.Image")));
+            this.kc_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.kc_btn.Name = "kc_btn";
+            this.kc_btn.Size = new System.Drawing.Size(92, 36);
+            this.kc_btn.Text = "库存管理";
+            this.kc_btn.Click += new System.EventHandler(this.kc_btn_Click);
             // 
-            // search_btn
+            // tj_btn
             // 
-            this.search_btn.Image = ((System.Drawing.Image)(resources.GetObject("search_btn.Image")));
-            this.search_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.search_btn.Name = "search_btn";
-            this.search_btn.Size = new System.Drawing.Size(68, 36);
-            this.search_btn.Text = "统计";
+            this.tj_btn.Image = ((System.Drawing.Image)(resources.GetObject("tj_btn.Image")));
+            this.tj_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tj_btn.Name = "tj_btn";
+            this.tj_btn.Size = new System.Drawing.Size(68, 36);
+            this.tj_btn.Text = "统计";
+            this.tj_btn.Click += new System.EventHandler(this.tj_btn_Click);
             // 
             // toolStripSeparator2
             // 
@@ -131,12 +133,13 @@
             this.help_btn.Name = "help_btn";
             this.help_btn.Size = new System.Drawing.Size(68, 36);
             this.help_btn.Text = "帮助";
+            this.help_btn.Click += new System.EventHandler(this.help_btn_Click);
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 381);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 380);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(868, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(904, 22);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -144,13 +147,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(868, 403);
+            this.ClientSize = new System.Drawing.Size(904, 402);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.maintool);
             this.Controls.Add(this.dockPanel1);
             this.IsMdiContainer = true;
             this.Name = "MainForm";
-            this.Text = "M销售系统";
+            this.Text = "销售系统 v1.0";
             this.maintool.ResumeLayout(false);
             this.maintool.PerformLayout();
             this.ResumeLayout(false);
@@ -166,10 +169,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton sale_btn;
         private System.Windows.Forms.ToolStripButton buy_btn;
-        private System.Windows.Forms.ToolStripButton search_btn;
+        private System.Windows.Forms.ToolStripButton tj_btn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton help_btn;
-        private System.Windows.Forms.ToolStripButton huose_btn;
+        private System.Windows.Forms.ToolStripButton kc_btn;
         private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }
