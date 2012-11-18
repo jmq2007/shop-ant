@@ -22,13 +22,16 @@ namespace Common
 		{
 			string sqlQuery="select * from tbl_buy";
             string sqlCount = "select count(*) from tbl_buy";
-			string sqlOrder = " order by name";
+            string sqlOrder = " order by buy_date";
 			if(condition!=null)
 			{
 				string sqlCondition=" where price>"+condition.Price;
-				sqlQuery +=sqlCondition+sqlOrder;
+				//sqlQuery +=sqlCondition+sqlOrder;
+                sqlQuery += sqlCondition;
 				sqlCount +=sqlCondition;
 			}
+            sqlQuery +=sqlOrder;
+
 			int totalRecord = AccessDBUtil.ExecuteScalar(sqlCount);
 			Page page = new Page(totalRecord,AccessPageUtil.PAGE_SIZE);
 			if(curPageIndex>=page.TotalPage)curPageIndex=page.TotalPage-1;
@@ -54,7 +57,7 @@ namespace Common
             product.Price_sale = Double.Parse(row["sale_price"].ToString());
 			product.Price = Double.Parse(row["price"].ToString());
             product.Other = row["other"].ToString();
-			//product.BuyDate = DateTime.Parse(row["buy_date"].ToString());
+			product.BuyDate = DateTime.Parse(row["buy_date"].ToString());
 			return product;
 		}
 	}

@@ -73,7 +73,7 @@
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(12, 70);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(627, 205);
+            this.listView1.Size = new System.Drawing.Size(660, 205);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -96,6 +96,7 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "数量";
+            this.columnHeader4.Width = 40;
             // 
             // columnHeader5
             // 
@@ -108,6 +109,7 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "时间";
+            this.columnHeader7.Width = 130;
             // 
             // columnHeader8
             // 
@@ -273,7 +275,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 317);
+            this.ClientSize = new System.Drawing.Size(684, 312);
             this.Controls.Add(this.txt_other);
             this.Controls.Add(this.txt_price);
             this.Controls.Add(this.txt_name);
