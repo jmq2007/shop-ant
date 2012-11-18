@@ -29,11 +29,13 @@ namespace jck_new
             {
                 AddProduct_buy(p);
             }
+            ChangeClour(listView1);
             this.labelMsg.Text = String.Format("共{0:d}条记录, 每页{1:d}条, {2:d}/{3:d}页",
                                         page.TotalRecord, page.PageSize, page.CurPageIndex + 1, page.TotalPage);
 
             curPageIndex = page.CurPageIndex;
             totalPage = page.TotalPage;
+
         }
         private void AddProduct_buy(Product_buy p)
         {
@@ -58,7 +60,7 @@ namespace jck_new
                 AddProduct_buy(p);
                 //Debug.WriteLine(p.Id);
             }
-
+            ChangeClour(listView1);
             this.labelMsg.Text = String.Format("共{0:d}条记录, 每页{1:d}条, {2:d}/{3:d}页",
                                         page.TotalRecord, page.PageSize, page.CurPageIndex + 1, page.TotalPage);
 
@@ -77,7 +79,7 @@ namespace jck_new
                 AddProduct_buy(p);
                 //Debug.WriteLine(p.Id);
             }
-
+            ChangeClour(listView1);
             this.labelMsg.Text = String.Format("共{0:d}条记录, 每页{1:d}条, {2:d}/{3:d}页",
                                         page.TotalRecord, page.PageSize, page.CurPageIndex + 1, page.TotalPage);
 
@@ -95,7 +97,7 @@ namespace jck_new
                 AddProduct_buy(p);
                 //Debug.WriteLine(p.Id);
             }
-
+            ChangeClour(listView1);
             this.labelMsg.Text = String.Format("共{0:d}条记录, 每页{1:d}条记录, {2:d}/{3:d}页",
                                         page.TotalRecord, page.PageSize, page.CurPageIndex + 1, page.TotalPage);
 
@@ -113,7 +115,7 @@ namespace jck_new
                 AddProduct_buy(p);
                 //Debug.WriteLine(p.Id);
             }
-
+            ChangeClour(listView1);
             this.labelMsg.Text = String.Format("共{0:d}条记录, 每页{1:d}条, {2:d}/{3:d}页",
                                         page.TotalRecord, page.PageSize, page.CurPageIndex + 1, page.TotalPage);
 
@@ -134,7 +136,7 @@ namespace jck_new
             int id = ProductDao.insert(p);
             //
             p = ProductDao.getById(id);
-            AddProduct(p);		
+            AddProduct(p);
         }
         private void AddProduct(Product_buy p)
         {
@@ -146,6 +148,17 @@ namespace jck_new
             lvi.SubItems.Add(p.Price_sale.ToString());
             lvi.SubItems.Add(p.BuyDate.ToString());
             lvi.SubItems.Add(p.Other.ToString());
+        }
+
+        private void ChangeClour(ListView listView)
+        {
+            for (int i = 0; i < listView.Items.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                     listView.Items[i].BackColor = Color.WhiteSmoke;
+                }
+            }
         }
     }
 }
