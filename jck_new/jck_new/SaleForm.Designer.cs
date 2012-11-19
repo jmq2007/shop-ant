@@ -55,7 +55,7 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
+            this.search_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.num_amount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -267,21 +267,22 @@
             this.columnHeader8.Text = "备注";
             this.columnHeader8.Width = 100;
             // 
-            // button1
+            // search_btn
             // 
-            this.button1.Location = new System.Drawing.Point(161, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 23);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "查找";
-            this.button1.UseVisualStyleBackColor = true;
+            this.search_btn.Location = new System.Drawing.Point(161, 7);
+            this.search_btn.Name = "search_btn";
+            this.search_btn.Size = new System.Drawing.Size(45, 23);
+            this.search_btn.TabIndex = 38;
+            this.search_btn.Text = "查找";
+            this.search_btn.UseVisualStyleBackColor = true;
+            this.search_btn.Click += new System.EventHandler(this.search_btn_Click);
             // 
             // SaleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 312);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.search_btn);
             this.Controls.Add(this.txt_other);
             this.Controls.Add(this.txt_price);
             this.Controls.Add(this.txt_name);
@@ -339,6 +340,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button search_btn;
     }
 }

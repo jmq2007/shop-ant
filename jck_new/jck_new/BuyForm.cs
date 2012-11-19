@@ -125,6 +125,32 @@ namespace jck_new
 
         private void add_btn_Click(object sender, EventArgs e)
         {
+            StringBuilder strErrorMsg = new StringBuilder();
+            if (!Validator.checkRequired(this.txt_code.Text))
+            {
+                strErrorMsg.Append("条码不能为空\n");
+            }
+            if (!Validator.checkRequired(this.txt_name.Text))
+            {
+                strErrorMsg.Append("名称不能为空\n");
+            }
+            if (!Validator.checkInteger(this.num_amount.Text))
+            {
+                strErrorMsg.Append("数量必须为整数\n");
+            }
+            if (!Validator.checkDouble(this.txt_price.Text) && !Validator.checkInteger(this.txt_price.Text))
+            {
+                strErrorMsg.Append("单价必须为数字\n");
+            }
+            if (!Validator.checkDouble(this.txt_saleprice.Text) && !Validator.checkInteger(this.txt_saleprice.Text))
+            {
+                strErrorMsg.Append("售价必须为数字\n");
+            }
+            if (strErrorMsg.Length > 0)
+            {
+                MessageBox.Show(strErrorMsg.ToString(), "出错提示");
+                return;
+            }
             Product_buy p = new Product_buy();
             p.Code = this.txt_code.Text.Trim();
             p.Name = this.txt_name.Text.Trim();
