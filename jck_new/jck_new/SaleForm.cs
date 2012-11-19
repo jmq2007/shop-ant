@@ -15,6 +15,7 @@ namespace jck_new
         private int curPageIndex;
         private int totalPage;
         private ListViewItem curLvi;
+        Product_buy product_buy_search;
         public SaleForm()
         {
             InitializeComponent();
@@ -47,16 +48,16 @@ namespace jck_new
         }
         private void search_btn_Click(object sender, EventArgs e)
         {
-            Product_buy product_buy = ProductDao.getByCode(this.txt_code.Text);
-            if (product_buy == null)
+            product_buy_search = ProductDao.getByCode(this.txt_code.Text);
+            if (product_buy_search == null)
             {
                 MessageBox.Show("sorry，未找到");
                 return;
             }
             this.num_amount.Value = 1;
-            this.txt_saleprice.Text = product_buy.Price.ToString();
-            this.txt_price.Text = product_buy.Price.ToString();
-            this.txt_name.Text = product_buy.Name;
+            this.txt_saleprice.Text = product_buy_search.Price.ToString();
+            this.txt_price.Text = product_buy_search.Price.ToString();
+            this.txt_name.Text = product_buy_search.Name;
         }
         private void nextP_btn_Click(object sender, EventArgs e)
         {
@@ -135,8 +136,48 @@ namespace jck_new
 
         private void add_btn_Click(object sender, EventArgs e)
         {
+            StringBuilder strErrorMsg = new StringBuilder();
+            if (!Validator.checkRequired(this.txt_code.Text))
+            {
+                strErrorMsg.Append("条码不能为空\n");
+            }
+            if (!Validator.checkRequired(this.txt_name.Text))
+            {
+                strErrorMsg.Append("名称不能为空\n");
+            }
+            if (!Validator.checkInteger(this.num_amount.Text))
+            {
+                strErrorMsg.Append("数量必须为整数\n");
+            }
+            if (!Validator.checkDouble(this.txt_saleprice.Text) && !Validator.checkInteger(this.txt_saleprice.Text))
+            {
+                strErrorMsg.Append("单价必须为数字\n");
+            }
+            if (!Validator.checkDouble(this.txt_price.Text) && !Validator.checkInteger(this.txt_price.Text))
+            {
+                strErrorMsg.Append("总价必须为数字\n");
+            }
 
+            if (strErrorMsg.Length > 0)
+            {
+                MessageBox.Show(strErrorMsg.ToString(), "出错提示");
+                return;
+            }
+            Product_sale p = new Product_sale();
+            p.Code = this.txt_code.Text.Trim();
+            p.Name = this.txt_name.Text.Trim();//
+            p.NameClass = product_buy_search.NameClass;
+            p.Amount = Int32.Parse(this.num_amount.Text.Trim());
+            p.Price = Double.Parse(this.txt_price.Text.Trim());
+            p.Price_sale = Double.Parse(this.txt_saleprice.Text.Trim());
+            p.BuyDate = DateTime.Now;
+            p.Other = this.txt_other.Text.Trim();
+            int id = ProductDao.insert_sale(p);
+            //
+            p = ProductDao.getById_sale(id);
+            AddProduct_sale(p);
         }
+
         private void ChangeClour(ListView listView)
         {
             for (int i = 0; i < listView.Items.Count; i++)
