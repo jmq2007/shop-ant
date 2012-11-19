@@ -101,6 +101,7 @@
       <DependentUpon>TjForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Validator.cs" />
+    <Compile Include="Product_sale.cs" />
     <EmbeddedResource Include="BuyForm.resx">
       <DependentUpon>BuyForm.cs</DependentUpon>
     </EmbeddedResource>

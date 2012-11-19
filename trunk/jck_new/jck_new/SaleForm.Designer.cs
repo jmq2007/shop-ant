@@ -56,64 +56,66 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.search_btn = new System.Windows.Forms.Button();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.num_amount)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_other
             // 
-            this.txt_other.Location = new System.Drawing.Point(257, 40);
+            this.txt_other.Location = new System.Drawing.Point(257, 44);
             this.txt_other.Name = "txt_other";
-            this.txt_other.Size = new System.Drawing.Size(100, 21);
+            this.txt_other.Size = new System.Drawing.Size(150, 21);
             this.txt_other.TabIndex = 37;
             // 
             // txt_price
             // 
-            this.txt_price.Location = new System.Drawing.Point(556, 7);
+            this.txt_price.Location = new System.Drawing.Point(556, 10);
             this.txt_price.Name = "txt_price";
             this.txt_price.Size = new System.Drawing.Size(100, 21);
             this.txt_price.TabIndex = 36;
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(55, 40);
+            this.txt_name.Location = new System.Drawing.Point(54, 44);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(100, 21);
+            this.txt_name.Size = new System.Drawing.Size(151, 21);
             this.txt_name.TabIndex = 35;
             // 
             // txt_saleprice
             // 
-            this.txt_saleprice.Location = new System.Drawing.Point(404, 7);
+            this.txt_saleprice.Location = new System.Drawing.Point(257, 10);
             this.txt_saleprice.Name = "txt_saleprice";
             this.txt_saleprice.Size = new System.Drawing.Size(100, 21);
             this.txt_saleprice.TabIndex = 34;
             // 
             // num_amount
             // 
-            this.num_amount.Location = new System.Drawing.Point(257, 7);
+            this.num_amount.Location = new System.Drawing.Point(404, 8);
             this.num_amount.Name = "num_amount";
             this.num_amount.Size = new System.Drawing.Size(100, 21);
             this.num_amount.TabIndex = 33;
             // 
             // txt_code
             // 
-            this.txt_code.Location = new System.Drawing.Point(55, 7);
+            this.txt_code.Location = new System.Drawing.Point(54, 10);
             this.txt_code.Name = "txt_code";
             this.txt_code.Size = new System.Drawing.Size(100, 21);
             this.txt_code.TabIndex = 32;
             // 
             // add_btn
             // 
-            this.add_btn.Location = new System.Drawing.Point(404, 39);
+            this.add_btn.Location = new System.Drawing.Point(429, 42);
             this.add_btn.Name = "add_btn";
             this.add_btn.Size = new System.Drawing.Size(75, 23);
             this.add_btn.TabIndex = 31;
             this.add_btn.Text = "卖出";
             this.add_btn.UseVisualStyleBackColor = true;
+            this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(216, 46);
+            this.label6.Location = new System.Drawing.Point(216, 47);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 12);
             this.label6.TabIndex = 30;
@@ -122,7 +124,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(363, 9);
+            this.label5.Location = new System.Drawing.Point(216, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 12);
             this.label5.TabIndex = 29;
@@ -131,7 +133,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(515, 11);
+            this.label4.Location = new System.Drawing.Point(515, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 12);
             this.label4.TabIndex = 28;
@@ -140,7 +142,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(216, 9);
+            this.label3.Location = new System.Drawing.Point(363, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 12);
             this.label3.TabIndex = 27;
@@ -149,7 +151,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 44);
+            this.label2.Location = new System.Drawing.Point(13, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 12);
             this.label2.TabIndex = 26;
@@ -158,7 +160,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 10);
+            this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 12);
             this.label1.TabIndex = 25;
@@ -219,10 +221,11 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7,
-            this.columnHeader8});
+            this.columnHeader8,
+            this.columnHeader9});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(13, 67);
+            this.listView1.Location = new System.Drawing.Point(12, 70);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(660, 205);
             this.listView1.TabIndex = 19;
@@ -237,45 +240,51 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "条码";
-            this.columnHeader2.Width = 100;
+            this.columnHeader2.Width = 80;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "名称";
-            this.columnHeader3.Width = 120;
+            this.columnHeader3.Text = "类型";
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "数量";
-            this.columnHeader4.Width = 40;
+            this.columnHeader4.Text = "名称";
+            this.columnHeader4.Width = 120;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "进价";
+            this.columnHeader5.Text = "单价";
+            this.columnHeader5.Width = 50;
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "售价";
+            this.columnHeader6.Text = "数量";
+            this.columnHeader6.Width = 50;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "时间";
-            this.columnHeader7.Width = 130;
+            this.columnHeader7.Text = "总价";
+            this.columnHeader7.Width = 50;
             // 
             // columnHeader8
             // 
-            this.columnHeader8.Text = "备注";
-            this.columnHeader8.Width = 100;
+            this.columnHeader8.Text = "时间";
+            this.columnHeader8.Width = 120;
             // 
             // search_btn
             // 
-            this.search_btn.Location = new System.Drawing.Point(161, 7);
+            this.search_btn.Location = new System.Drawing.Point(161, 8);
             this.search_btn.Name = "search_btn";
             this.search_btn.Size = new System.Drawing.Size(45, 23);
             this.search_btn.TabIndex = 38;
             this.search_btn.Text = "查找";
             this.search_btn.UseVisualStyleBackColor = true;
             this.search_btn.Click += new System.EventHandler(this.search_btn_Click);
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "备注";
+            this.columnHeader9.Width = 80;
             // 
             // SaleForm
             // 
@@ -341,5 +350,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.Button search_btn;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }

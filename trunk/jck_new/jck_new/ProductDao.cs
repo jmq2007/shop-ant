@@ -99,7 +99,15 @@ namespace Common
             parameters[0] = new OleDbParameter("@code" ,OleDbType.VarChar, 50);
             parameters[0].Value = code;
             DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
-            return Row2Product(ds.Tables["ds"].Rows[0]);
+            if (ds.Tables["ds"].Rows.Count>0)
+            {
+                return Row2Product(ds.Tables["ds"].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+           
         }
 		
 	}
