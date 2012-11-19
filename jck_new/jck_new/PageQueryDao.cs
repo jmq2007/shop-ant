@@ -61,5 +61,54 @@ namespace Common
 			product.BuyDate = DateTime.Parse(row["buy_date"].ToString());
 			return product;
 		}
+
+
+        public static Page getProducts_sale(int curPageIndex)
+        {
+            return getProducts_sale(curPageIndex, null);
+        }
+        public static Page getProducts_sale(int curPageIndex, Product_sale condition)
+        {
+            string sqlQuery = "select * from tbl_sale";
+            string sqlCount = "select count(*) from tbl_sale";
+            string sqlOrder = " order by sale_date";
+            if (condition != null)
+            {
+                string sqlCondition = " where price>" + condition.Price;
+                //sqlQuery +=sqlCondition+sqlOrder;
+                sqlQuery += sqlCondition;
+                sqlCount += sqlCondition;
+            }
+            sqlQuery += sqlOrder;
+
+            int totalRecord = AccessDBUtil.ExecuteScalar(sqlCount);
+            Page page = new Page(totalRecord, AccessPageUtil.PAGE_SIZE);
+            if (curPageIndex >= page.TotalPage) curPageIndex = page.TotalPage - 1;
+            if (curPageIndex < 0) curPageIndex = 0;
+            page.CurPageIndex = curPageIndex;
+
+            DataSet data = AccessPageUtil.query(sqlQuery, curPageIndex, totalRecord);
+            List<Product_sale> ls = new List<Product_sale>();
+            foreach (DataRow row in data.Tables["ds"].Rows)
+            {
+                ls.Add(Row2Product_sale(row));
+            }
+            page.ValueList = ls;
+            return page;
+        }
+        private static Product_sale Row2Product_sale(DataRow row)
+        {
+            Product_sale product = new Product_sale();
+            product.Id = Int32.Parse(row["id"].ToString());
+            product.Code = row["code"].ToString();
+            product.NameClass = row["class"].ToString();
+            product.Name = row["p_name"].ToString();
+            product.Amount = Int32.Parse(row["amount"].ToString());
+            product.Price_sale = Double.Parse(row["sale_price"].ToString());
+            product.Price = Double.Parse(row["price"].ToString());
+            product.Other = row["other"].ToString();
+            product.BuyDate = DateTime.Parse(row["sale_date"].ToString());
+            return product;
+        }
 	}
 }
