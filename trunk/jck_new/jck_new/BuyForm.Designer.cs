@@ -55,6 +55,8 @@
             this.txt_name = new System.Windows.Forms.TextBox();
             this.txt_price = new System.Windows.Forms.TextBox();
             this.txt_other = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.num_amount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -195,7 +197,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(168, 47);
+            this.label4.Location = new System.Drawing.Point(316, 14);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 12);
             this.label4.TabIndex = 9;
@@ -204,7 +206,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(315, 13);
+            this.label5.Location = new System.Drawing.Point(464, 14);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 12);
             this.label5.TabIndex = 10;
@@ -221,7 +223,7 @@
             // 
             // add_btn
             // 
-            this.add_btn.Location = new System.Drawing.Point(477, 41);
+            this.add_btn.Location = new System.Drawing.Point(530, 40);
             this.add_btn.Name = "add_btn";
             this.add_btn.Size = new System.Drawing.Size(75, 23);
             this.add_btn.TabIndex = 12;
@@ -245,7 +247,7 @@
             // 
             // txt_saleprice
             // 
-            this.txt_saleprice.Location = new System.Drawing.Point(356, 11);
+            this.txt_saleprice.Location = new System.Drawing.Point(505, 10);
             this.txt_saleprice.Name = "txt_saleprice";
             this.txt_saleprice.Size = new System.Drawing.Size(100, 21);
             this.txt_saleprice.TabIndex = 15;
@@ -259,7 +261,7 @@
             // 
             // txt_price
             // 
-            this.txt_price.Location = new System.Drawing.Point(209, 43);
+            this.txt_price.Location = new System.Drawing.Point(357, 10);
             this.txt_price.Name = "txt_price";
             this.txt_price.Size = new System.Drawing.Size(100, 21);
             this.txt_price.TabIndex = 17;
@@ -268,14 +270,33 @@
             // 
             this.txt_other.Location = new System.Drawing.Point(357, 43);
             this.txt_other.Name = "txt_other";
-            this.txt_other.Size = new System.Drawing.Size(100, 21);
+            this.txt_other.Size = new System.Drawing.Size(167, 21);
             this.txt_other.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(168, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 12);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "类别:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(209, 43);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(100, 20);
+            this.comboBox1.TabIndex = 20;
             // 
             // BuyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 312);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.txt_other);
             this.Controls.Add(this.txt_price);
             this.Controls.Add(this.txt_name);
@@ -333,5 +354,7 @@
         private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.TextBox txt_price;
         private System.Windows.Forms.TextBox txt_other;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

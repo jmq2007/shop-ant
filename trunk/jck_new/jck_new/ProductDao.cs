@@ -92,6 +92,15 @@ namespace Common
 			product.Other = row["other"].ToString();
 			return product;
 		}
+        public static Product_buy getByCode(string code)
+        {
+            string sql = "select id,code,p_name,amount,sale_price,price,buy_date,other from tbl_buy where code=?";
+            OleDbParameter[] parameters = new OleDbParameter[1];
+            parameters[0] = new OleDbParameter("@code" ,OleDbType.VarChar, 50);
+            parameters[0].Value = code;
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
+            return Row2Product(ds.Tables["ds"].Rows[0]);
+        }
 		
 	}
 }

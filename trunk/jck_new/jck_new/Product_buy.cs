@@ -9,6 +9,7 @@ namespace jck_new
     {
         private int id;
 		private string code;//条码
+        private string nameClass;//条码
         private string name;//名称
         private double price;//进价
         private double price_sale;//售价
@@ -27,6 +28,11 @@ namespace jck_new
         {
             get { return code; }
             set { code = value; }
+        }
+        public string NameClass
+        {
+            get { return nameClass; }
+            set { nameClass = value; }
         }
         public string Name
         {

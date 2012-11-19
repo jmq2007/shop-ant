@@ -52,6 +52,7 @@ namespace Common
             Product_buy product = new Product_buy();
 			product.Id = Int32.Parse(row["id"].ToString());
             product.Code = row["code"].ToString();
+            product.NameClass = row["class"].ToString();
             product.Name = row["p_name"].ToString();
             product.Amount = Int32.Parse(row["amount"].ToString());
             product.Price_sale = Double.Parse(row["sale_price"].ToString());
