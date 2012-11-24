@@ -188,5 +188,41 @@ namespace jck_new
                 }
             }
         }
+
+        private void MenuItem_del_Click(object sender, EventArgs e)
+        {
+            if (this.listView1.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("请选择要删除的数据");
+                return;
+            }
+            MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+            DialogResult dr = MessageBox.Show("确定要删除吗?", "提示", messButton);
+            if (dr == DialogResult.OK)
+            {
+                ListViewItem lvi = this.listView1.SelectedItems[0];
+                int id = Int32.Parse(lvi.SubItems[0].Text);
+                ProductDao.deleteById_sale(id);
+                lvi.Remove();
+            }
+            else
+            {
+            }
+        }
+
+        private void MenuItem_edit_Click(object sender, EventArgs e)
+        {
+            if (this.listView1.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("请选择要编辑的数据");
+                return;
+            }
+            ListViewItem lvi = this.listView1.SelectedItems[0];
+            int id = Int32.Parse(lvi.SubItems[0].Text);
+            SaleEditForm saleEditForm = new SaleEditForm(id,this.listView1.SelectedIndices[0]);
+            saleEditForm._form = this;
+            saleEditForm.Owner = this;
+            saleEditForm.ShowDialog();
+        }
     }
 }

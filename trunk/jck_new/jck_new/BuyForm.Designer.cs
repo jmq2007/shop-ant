@@ -28,15 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.components = new System.ComponentModel.Container();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MenuItem_edit = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_del = new System.Windows.Forms.ToolStripMenuItem();
             this.firstP_btn = new System.Windows.Forms.Button();
             this.prevP_btn = new System.Windows.Forms.Button();
             this.nextP_btn = new System.Windows.Forms.Button();
@@ -57,66 +52,41 @@
             this.txt_other = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_amount)).BeginInit();
             this.SuspendLayout();
             // 
-            // listView1
+            // contextMenuStrip1
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8});
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(12, 70);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(660, 205);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItem_edit,
+            this.MenuItem_del});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
             // 
-            // columnHeader1
+            // MenuItem_edit
             // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 40;
+            this.MenuItem_edit.Name = "MenuItem_edit";
+            this.MenuItem_edit.Size = new System.Drawing.Size(100, 22);
+            this.MenuItem_edit.Text = "编辑";
+            this.MenuItem_edit.Click += new System.EventHandler(this.MenuItem_edit_Click);
             // 
-            // columnHeader2
+            // MenuItem_del
             // 
-            this.columnHeader2.Text = "条码";
-            this.columnHeader2.Width = 100;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "名称";
-            this.columnHeader3.Width = 120;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "数量";
-            this.columnHeader4.Width = 40;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "进价";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "售价";
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "时间";
-            this.columnHeader7.Width = 130;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "备注";
-            this.columnHeader8.Width = 100;
+            this.MenuItem_del.Name = "MenuItem_del";
+            this.MenuItem_del.Size = new System.Drawing.Size(100, 22);
+            this.MenuItem_del.Text = "删除";
+            this.MenuItem_del.Click += new System.EventHandler(this.MenuItem_del_Click);
             // 
             // firstP_btn
             // 
@@ -284,17 +254,85 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(209, 43);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 20);
             this.comboBox1.TabIndex = 20;
             // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9});
+            this.listView1.ContextMenuStrip = this.contextMenuStrip1;
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.Location = new System.Drawing.Point(15, 70);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(660, 205);
+            this.listView1.TabIndex = 21;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 40;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "条码";
+            this.columnHeader2.Width = 70;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "类型";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "名称";
+            this.columnHeader4.Width = 120;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "进价";
+            this.columnHeader5.Width = 50;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "数量";
+            this.columnHeader6.Width = 50;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "售价";
+            this.columnHeader7.Width = 50;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "时间";
+            this.columnHeader8.Width = 130;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "备注";
+            this.columnHeader9.Width = 80;
+            // 
             // BuyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 312);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txt_other);
@@ -315,10 +353,10 @@
             this.Controls.Add(this.nextP_btn);
             this.Controls.Add(this.prevP_btn);
             this.Controls.Add(this.firstP_btn);
-            this.Controls.Add(this.listView1);
             this.Name = "BuyForm";
             this.TabText = "进货";
             this.Text = "进货";
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.num_amount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -327,15 +365,6 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.Button firstP_btn;
         private System.Windows.Forms.Button prevP_btn;
         private System.Windows.Forms.Button nextP_btn;
@@ -356,5 +385,18 @@
         private System.Windows.Forms.TextBox txt_other;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_edit;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_del;
+        public System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }

@@ -37,9 +37,11 @@
             this.buy_btn = new System.Windows.Forms.ToolStripButton();
             this.kc_btn = new System.Windows.Forms.ToolStripButton();
             this.tj_btn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.help_btn = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.out_btn = new System.Windows.Forms.ToolStripButton();
             this.maintool.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +65,8 @@
             this.buy_btn,
             this.kc_btn,
             this.tj_btn,
+            this.out_btn,
+            this.toolStripButton1,
             this.toolStripSeparator2,
             this.help_btn});
             this.maintool.Location = new System.Drawing.Point(0, 0);
@@ -108,8 +112,8 @@
             this.kc_btn.Image = ((System.Drawing.Image)(resources.GetObject("kc_btn.Image")));
             this.kc_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.kc_btn.Name = "kc_btn";
-            this.kc_btn.Size = new System.Drawing.Size(92, 36);
-            this.kc_btn.Text = "库存管理";
+            this.kc_btn.Size = new System.Drawing.Size(68, 36);
+            this.kc_btn.Text = "库存";
             this.kc_btn.Click += new System.EventHandler(this.kc_btn_Click);
             // 
             // tj_btn
@@ -120,6 +124,14 @@
             this.tj_btn.Size = new System.Drawing.Size(68, 36);
             this.tj_btn.Text = "统计";
             this.tj_btn.Click += new System.EventHandler(this.tj_btn_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(68, 36);
+            this.toolStripButton1.Text = "备份";
             // 
             // toolStripSeparator2
             // 
@@ -143,6 +155,14 @@
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // out_btn
+            // 
+            this.out_btn.Image = ((System.Drawing.Image)(resources.GetObject("out_btn.Image")));
+            this.out_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.out_btn.Name = "out_btn";
+            this.out_btn.Size = new System.Drawing.Size(68, 36);
+            this.out_btn.Text = "导出";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -153,6 +173,7 @@
             this.Controls.Add(this.dockPanel1);
             this.IsMdiContainer = true;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "销售系统 v1.0";
             this.maintool.ResumeLayout(false);
             this.maintool.PerformLayout();
@@ -174,6 +195,8 @@
         private System.Windows.Forms.ToolStripButton help_btn;
         private System.Windows.Forms.ToolStripButton kc_btn;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton out_btn;
     }
 }
 

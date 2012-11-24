@@ -81,7 +81,13 @@ namespace Common
                 {
                     connection.Open();
                     if(parameters!=null) cmd.Parameters.AddRange(parameters);
-                    int value = Int32.Parse(cmd.ExecuteScalar().ToString());
+                    string s = cmd.ExecuteScalar().ToString();
+                    int value = 0;
+                    if (cmd.ExecuteScalar().ToString() != "")
+                    {
+                        value = Int32.Parse(cmd.ExecuteScalar().ToString());
+                    }
+                    
                     return value;
                 }
                 catch (Exception e)
