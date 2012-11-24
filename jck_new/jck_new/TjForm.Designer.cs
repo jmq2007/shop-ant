@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_tj = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -68,17 +73,19 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(150, 21);
             this.dateTimePicker2.TabIndex = 3;
             // 
-            // button1
+            // btn_tj
             // 
-            this.button1.Location = new System.Drawing.Point(515, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "统计";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_tj.Location = new System.Drawing.Point(515, 10);
+            this.btn_tj.Name = "btn_tj";
+            this.btn_tj.Size = new System.Drawing.Size(75, 23);
+            this.btn_tj.TabIndex = 4;
+            this.btn_tj.Text = "统计";
+            this.btn_tj.UseVisualStyleBackColor = true;
+            this.btn_tj.Click += new System.EventHandler(this.btn_tj_Click);
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "销售额统计",
@@ -89,13 +96,30 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 20);
             this.comboBox1.TabIndex = 5;
             // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(14, 39);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(658, 261);
+            this.chart1.TabIndex = 6;
+            this.chart1.Text = "chart1";
+            // 
             // TjForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 312);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_tj);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker1);
@@ -103,6 +127,7 @@
             this.Name = "TjForm";
             this.TabText = "统计";
             this.Text = "统计";
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,7 +139,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_tj;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
