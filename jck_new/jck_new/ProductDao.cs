@@ -119,24 +119,24 @@ namespace Common
         ///////////////////////////////////////////////////////
         public static int insert_sale(Product_sale p)
         {
-            string sql = "insert into tbl_sale(code,p_name,class,sale_price,p_amount,price,sale_date,other)values(?,?,?,?,?,?,?,?);";
-            OleDbParameter[] parameters = new OleDbParameter[8];
+            string sql = "insert into tbl_sale(code,sale_price,p_amount,price,sale_date,other)values(?,?,?,?,?,?);";
+            OleDbParameter[] parameters = new OleDbParameter[6];
             parameters[0] = new OleDbParameter("@code", OleDbType.VarChar, 50);
             parameters[0].Value = p.Code;
-            parameters[1] = new OleDbParameter("@p_name", OleDbType.VarChar, 50);
-            parameters[1].Value = p.Name;
-            parameters[2] = new OleDbParameter("@class", OleDbType.VarChar, 50);
-            parameters[2].Value = p.NameClass;
-            parameters[3] = new OleDbParameter("@sale_price", OleDbType.Double);
-            parameters[3].Value = p.Price_sale;
-            parameters[4] = new OleDbParameter("@p_amount", OleDbType.Integer);
-            parameters[4].Value = p.Amount;
-            parameters[5] = new OleDbParameter("@price", OleDbType.Double);
-            parameters[5].Value = p.Price;
-            parameters[6] = new OleDbParameter("@sale_date", OleDbType.Date);
-            parameters[6].Value = p.BuyDate;
-            parameters[7] = new OleDbParameter("@other", OleDbType.VarChar, 50);
-            parameters[7].Value = p.Other;
+            //parameters[1] = new OleDbParameter("@p_name", OleDbType.VarChar, 50);
+            //parameters[1].Value = p.Name;
+           // parameters[2] = new OleDbParameter("@class", OleDbType.VarChar, 50);
+            //parameters[2].Value = p.NameClass;
+            parameters[1] = new OleDbParameter("@sale_price", OleDbType.Double);
+            parameters[1].Value = p.Price_sale;
+            parameters[2] = new OleDbParameter("@p_amount", OleDbType.Integer);
+            parameters[2].Value = p.Amount;
+            parameters[3] = new OleDbParameter("@price", OleDbType.Double);
+            parameters[3].Value = p.Price;
+            parameters[4] = new OleDbParameter("@sale_date", OleDbType.Date);
+            parameters[4].Value = p.BuyDate;
+            parameters[5] = new OleDbParameter("@other", OleDbType.VarChar, 50);
+            parameters[5].Value = p.Other;
 
             return AccessDBUtil.ExecuteInsert(sql, parameters);
         }
@@ -151,26 +151,26 @@ namespace Common
         }
         public static int update_sale(Product_sale p)
         {
-            string sql = "update tbl_sale set code=?,p_name=?,class=?,sale_price=?,p_amount=?,price=?,sale_date=?,other=? where id=?";
-            OleDbParameter[] parameters = new OleDbParameter[9];
+            string sql = "update tbl_sale set code=?,sale_price=?,p_amount=?,price=?,sale_date=?,other=? where id=?";
+            OleDbParameter[] parameters = new OleDbParameter[7];
             parameters[0] = new OleDbParameter("@code", OleDbType.VarChar, 50);
             parameters[0].Value = p.Code;
-            parameters[1] = new OleDbParameter("@p_name", OleDbType.VarChar, 50);
-            parameters[1].Value = p.Name;
-            parameters[2] = new OleDbParameter("@class", OleDbType.VarChar, 50);
-            parameters[2].Value = p.NameClass;
-            parameters[3] = new OleDbParameter("@sale_price", OleDbType.Double);
-            parameters[3].Value = p.Price_sale;
-            parameters[4] = new OleDbParameter("@p_amount", OleDbType.Integer);
-            parameters[4].Value = p.Amount;
-            parameters[5] = new OleDbParameter("@price", OleDbType.Double);
-            parameters[5].Value = p.Price;
-            parameters[6] = new OleDbParameter("@sale_date", OleDbType.Date);
-            parameters[6].Value = p.BuyDate;
-            parameters[7] = new OleDbParameter("@other", OleDbType.VarChar, 50);
-            parameters[7].Value = p.Other;
-            parameters[8] = new OleDbParameter("@id", OleDbType.Integer);
-            parameters[8].Value = p.Id;
+            //parameters[1] = new OleDbParameter("@p_name", OleDbType.VarChar, 50);
+           // parameters[1].Value = p.Name;
+          //  parameters[2] = new OleDbParameter("@class", OleDbType.VarChar, 50);
+           // parameters[2].Value = p.NameClass;
+            parameters[1] = new OleDbParameter("@sale_price", OleDbType.Double);
+            parameters[1].Value = p.Price_sale;
+            parameters[2] = new OleDbParameter("@p_amount", OleDbType.Integer);
+            parameters[2].Value = p.Amount;
+            parameters[3] = new OleDbParameter("@price", OleDbType.Double);
+            parameters[3].Value = p.Price;
+            parameters[4] = new OleDbParameter("@sale_date", OleDbType.Date);
+            parameters[4].Value = p.BuyDate;
+            parameters[5] = new OleDbParameter("@other", OleDbType.VarChar, 50);
+            parameters[5].Value = p.Other;
+            parameters[6] = new OleDbParameter("@id", OleDbType.Integer);
+            parameters[6].Value = p.Id;
 
             return AccessDBUtil.ExecuteNonQuery(sql, parameters);
 
@@ -178,7 +178,11 @@ namespace Common
         }
         public static Product_sale getById_sale(int id)
         {
-            string sql = "select id,code,class,p_name,p_amount,sale_price,price,sale_date,other from tbl_sale where id=?";
+            string sql = "SELECT s.id AS id, s.code AS code, b.class AS class, b.p_name AS p_name,"
+                + "s.sale_price AS sale_price, s.p_amount AS p_amount, s.price AS price,"
+                + " s.sale_date AS sale_date, s.other AS other "
+                + "FROM tbl_sale AS s, tbl_buy AS b "
+                + "WHERE s.code=b.code and s.id = ?";
             OleDbParameter[] parameters = new OleDbParameter[1];
             parameters[0] = new OleDbParameter("@id", OleDbType.Integer);
             parameters[0].Value = id;
@@ -202,7 +206,11 @@ namespace Common
         }
         public static Product_sale getByCode_sale(string code)
         {
-            string sql = "select id,code,p_name,p_amount,sale_price,price,buy_date,other from tbl_sale where code=?";
+            string sql = "SELECT s.id AS id, s.code AS code, b.class AS class, b.p_name AS p_name,"
+                + "s.sale_price AS sale_price, s.p_amount AS p_amount, s.price AS price,"
+                + " s.sale_date AS sale_date, s.other AS other "
+                + "FROM tbl_sale AS s, tbl_buy AS b "
+                + "WHERE s.code=b.code and s.code=?";
             OleDbParameter[] parameters = new OleDbParameter[1];
             parameters[0] = new OleDbParameter("@code", OleDbType.VarChar, 50);
             parameters[0].Value = code;
@@ -247,7 +255,7 @@ namespace Common
         }
         public static double dayPrice()
         {
-            string sql = "select sum(price) from tbl_sale where (DateDiff('d',sale_date,Date())=0)";
+            string sql = "select sum(sale_price) from tbl_sale where (DateDiff('d',sale_date,Date())=0)";
             int ds = AccessDBUtil.ExecuteScalar(sql);
             return ds;
         }
@@ -260,7 +268,7 @@ namespace Common
         }
         public static double mPrice()
         {
-            string sql = "select sum(price) from tbl_sale where (DateDiff('m',sale_date,Date())=0)";
+            string sql = "select sum(sale_price) from tbl_sale where (DateDiff('m',sale_date,Date())=0)";
             int ds = AccessDBUtil.ExecuteScalar(sql);
             return ds;
         }

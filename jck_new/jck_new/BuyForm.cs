@@ -49,8 +49,9 @@ namespace jck_new
             lvi.SubItems.Add(p.Code);
             lvi.SubItems.Add(p.NameClass);
             lvi.SubItems.Add(p.Name.ToString());
-            lvi.SubItems.Add(p.Amount.ToString());
+           
             lvi.SubItems.Add(p.Price.ToString());
+            lvi.SubItems.Add(p.Amount.ToString());
             lvi.SubItems.Add(p.Price_sale.ToString());
             lvi.SubItems.Add(p.BuyDate.ToString());
             lvi.SubItems.Add(p.Other.ToString());
@@ -178,8 +179,9 @@ namespace jck_new
             lvi.SubItems.Add(p.Code.ToString());
             lvi.SubItems.Add(p.NameClass.ToString());
             lvi.SubItems.Add(p.Name.ToString());
-            lvi.SubItems.Add(p.Amount.ToString());
             lvi.SubItems.Add(p.Price.ToString());
+            lvi.SubItems.Add(p.Amount.ToString());
+            
             lvi.SubItems.Add(p.Price_sale.ToString());
             lvi.SubItems.Add(p.BuyDate.ToString());
             lvi.SubItems.Add(p.Other.ToString());
@@ -203,11 +205,19 @@ namespace jck_new
                 MessageBox.Show("请选择要删除的数据");
                 return;
             }
+            ListViewItem lvi = this.listView1.SelectedItems[0];
+            //int id = Int32.Parse(lvi.SubItems[0].Text);
+            string code = lvi.SubItems[1].Text;
+            if (ProductDao.getByCode_sale(code)!=null)
+            {
+                MessageBox.Show("此商品已经有售出，不能删除");
+                return;
+            }
             MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
             DialogResult dr = MessageBox.Show("确定要删除吗?", "提示", messButton);
             if (dr == DialogResult.OK)
             {
-                ListViewItem lvi = this.listView1.SelectedItems[0];
+                //ListViewItem lvi = this.listView1.SelectedItems[0];
                 int id = Int32.Parse(lvi.SubItems[0].Text);
                 ProductDao.deleteById(id);
                 lvi.Remove();

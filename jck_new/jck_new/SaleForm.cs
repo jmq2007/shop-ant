@@ -55,8 +55,8 @@ namespace jck_new
                 return;
             }
             this.num_amount.Value = 1;
-            this.txt_saleprice.Text = product_buy_search.Price.ToString();
-            this.txt_price.Text = product_buy_search.Price.ToString();
+            this.txt_saleprice.Text = product_buy_search.Price_sale.ToString();
+            this.txt_price.Text = product_buy_search.Price_sale.ToString();
             this.txt_name.Text = product_buy_search.Name;
         }
         private void nextP_btn_Click(object sender, EventArgs e)
