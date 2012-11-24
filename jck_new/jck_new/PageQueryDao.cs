@@ -6,61 +6,61 @@ using jck_new;
 
 namespace Common
 {
-	/// <summary>
-	/// Description of PageDao.
-	/// </summary>
-	public class PageQueryDao
-	{
-		private PageQueryDao()
-		{
-		}
+    /// <summary>
+    /// Description of PageDao.
+    /// </summary>
+    public class PageQueryDao
+    {
+        private PageQueryDao()
+        {
+        }
         public static Page getProducts_buy(int curPageIndex)
-		{
+        {
             return getProducts_buy(curPageIndex, null);
-		}
+        }
         public static Page getProducts_buy(int curPageIndex, Product_buy condition)
-		{
-			string sqlQuery="select * from tbl_buy";
+        {
+            string sqlQuery = "select * from tbl_buy";
             string sqlCount = "select count(*) from tbl_buy";
             string sqlOrder = " order by buy_date";
-			if(condition!=null)
-			{
-				string sqlCondition=" where price>"+condition.Price;
-				//sqlQuery +=sqlCondition+sqlOrder;
+            if (condition != null)
+            {
+                string sqlCondition = " where price>" + condition.Price;
+                //sqlQuery +=sqlCondition+sqlOrder;
                 sqlQuery += sqlCondition;
-				sqlCount +=sqlCondition;
-			}
-            sqlQuery +=sqlOrder;
+                sqlCount += sqlCondition;
+            }
+            sqlQuery += sqlOrder;
 
-			int totalRecord = AccessDBUtil.ExecuteScalar(sqlCount);
-			Page page = new Page(totalRecord,AccessPageUtil.PAGE_SIZE);
-			if(curPageIndex>=page.TotalPage)curPageIndex=page.TotalPage-1;
-			if(curPageIndex<0)curPageIndex=0;
-			page.CurPageIndex=curPageIndex;
-			
-			DataSet data = AccessPageUtil.query(sqlQuery,curPageIndex,totalRecord);
+            int totalRecord = AccessDBUtil.ExecuteScalar(sqlCount);
+            Page page = new Page(totalRecord, AccessPageUtil.PAGE_SIZE);
+            if (curPageIndex >= page.TotalPage) curPageIndex = page.TotalPage - 1;
+            if (curPageIndex < 0) curPageIndex = 0;
+            page.CurPageIndex = curPageIndex;
+
+            DataSet data = AccessPageUtil.query(sqlQuery, curPageIndex, totalRecord);
             List<Product_buy> ls = new List<Product_buy>();
-			foreach(DataRow row in data.Tables["ds"].Rows)
-			{
+            foreach (DataRow row in data.Tables["ds"].Rows)
+            {
                 ls.Add(Row2Product_buy(row));
-			}
-			page.ValueList=ls;
-			return  page;
-		}
+            }
+            page.ValueList = ls;
+            return page;
+        }
         private static Product_buy Row2Product_buy(DataRow row)
-		{
+        {
             Product_buy product = new Product_buy();
-			product.Id = Int32.Parse(row["id"].ToString());
+            product.Id = Int32.Parse(row["id"].ToString());
             product.Code = row["code"].ToString();
             product.NameClass = row["class"].ToString();
             product.Name = row["p_name"].ToString();
             product.Amount = Int32.Parse(row["p_amount"].ToString());
             product.Price_sale = Double.Parse(row["sale_price"].ToString());
-			product.Price = Double.Parse(row["price"].ToString());
+            product.Price = Double.Parse(row["price"].ToString());
             product.Other = row["other"].ToString();
-			product.BuyDate = DateTime.Parse(row["buy_date"].ToString());
-			return product;
-		}
+            product.BuyDate = DateTime.Parse(row["buy_date"].ToString());
+            return product;
+        }
 
 
         public static Page getProducts_sale(int curPageIndex)
@@ -69,9 +69,13 @@ namespace Common
         }
         public static Page getProducts_sale(int curPageIndex, Product_sale condition)
         {
-            string sqlQuery = "select * from tbl_sale";
+            string sqlQuery = "SELECT s.id AS id, s.code AS code, b.class AS class, b.p_name AS p_name,"
+                +"s.sale_price AS sale_price, s.p_amount AS p_amount, s.price AS price,"
+                +" s.sale_date AS sale_date, s.other AS other "
+                + "FROM tbl_sale AS s, tbl_buy AS b "
+                + "WHERE s.code=b.code";
             string sqlCount = "select count(*) from tbl_sale";
-            string sqlOrder = " order by sale_date";
+            string sqlOrder = " order by s.sale_date";
             if (condition != null)
             {
                 string sqlCondition = " where price>" + condition.Price;
@@ -110,5 +114,5 @@ namespace Common
             product.BuyDate = DateTime.Parse(row["sale_date"].ToString());
             return product;
         }
-	}
+    }
 }
