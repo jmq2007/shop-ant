@@ -28,6 +28,18 @@ namespace jck_new
             this.txt_price.Text = product.Price.ToString();
             this.txt_other.Text = product.Other;
             this.dateTimePicker1.Value = product.BuyDate;
+
+            DataSet ds = ProductDao.allCalss();
+            int j = 0;
+            for (int i = 0; i < ds.Tables["ds"].Rows.Count; i++)
+            {
+                comboBox1.Items.Add(ds.Tables["ds"].Rows[i]["class"]);
+                if (ds.Tables["ds"].Rows[i]["class"].ToString() == product.NameClass)
+                {
+                    j = i;
+                }
+            }
+            comboBox1.SelectedIndex = j;
         }
 
         private void but_save_Click(object sender, EventArgs e)
@@ -62,12 +74,14 @@ namespace jck_new
             Product_buy newProduct = new Product_buy();
             newProduct.Id = product.Id;
             newProduct.Code = product.Code;
-            newProduct.Name = product.Name;
+           // newProduct.Name = product.Name;
 
+            newProduct.Name = this.txt_name.Text;
+            newProduct.NameClass = this.comboBox1.SelectedItem.ToString();
             newProduct.Price_sale = Double.Parse(this.txt_saleprice.Text);
             newProduct.Amount = Int32.Parse(this.num_amount.Text.Trim());
             newProduct.Price = Double.Parse(this.txt_price.Text);
-            newProduct.NameClass = product.NameClass;
+            //newProduct.NameClass = product.NameClass;
             newProduct.BuyDate = this.dateTimePicker1.Value;
             newProduct.Other = this.txt_other.Text;
             ProductDao.update(newProduct);

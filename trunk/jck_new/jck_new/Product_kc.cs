@@ -5,25 +5,23 @@ using System.Text;
 
 namespace jck_new
 {
-    public class Product_sale
+    public class Product_kc
     {
-        private int id;
+        //private int id;
 		private string code;//条码
-        private string nameClass;//类型 b表
-        private string name;//名称 b表
-        private double price;//总价
-        private double price_sale;//单价
-        private int amount;//数量
-		private DateTime buyDate;//出售时间
+        private string nameClass;//类型
+        private string name;//名称
+        private double price;//进价
+        private double price_sale;//余货总价
+        private int amount;//库存
+        private int amount_s;//售出量
+        private DateTime buyDate;//出售时间
         private string other;//备注
 
-        public Product_sale()
+        public Product_kc()
 		{
 		}
-		public int Id {
-			get { return id; }
-			set { id = value; }
-		}
+
         public string Code
         {
             get { return code; }
@@ -54,16 +52,20 @@ namespace jck_new
             get { return amount; }
             set { amount = value; }
         }
-        public DateTime BuyDate
+        public int Amount_s
         {
-            get { return buyDate; }
-            set { buyDate = value; }
+            get { return amount_s; }
+            set { amount_s = value; }
         }
         public string Other
         {
             get { return other; }
             set { other = value; }
         }
-	
+        public DateTime BuyDate
+        {
+            get { return buyDate; }
+            set { buyDate = value; }
+        }
     }
 }

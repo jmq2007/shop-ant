@@ -81,6 +81,7 @@
             // 
             // txt_name
             // 
+            this.txt_name.Enabled = false;
             this.txt_name.Location = new System.Drawing.Point(54, 44);
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(151, 21);
