@@ -20,7 +20,13 @@ namespace jck_new
         public BuyForm()
         {
             InitializeComponent();
+            DataSet ds = ProductDao.allCalss();
 
+            for (int i=0; i < ds.Tables["ds"].Rows.Count; i++)
+            {
+                comboBox1.Items.Add(ds.Tables["ds"].Rows[i]["class"]);
+            }
+            comboBox1.SelectedIndex = 0;
             curPageIndex = 0;
             Page page = PageQueryDao.getProducts_buy(curPageIndex);
             List<Product_buy> ls = (List<Product_buy>)page.ValueList;
@@ -41,6 +47,7 @@ namespace jck_new
         {
             ListViewItem lvi = this.listView1.Items.Add(p.Id.ToString());
             lvi.SubItems.Add(p.Code);
+            lvi.SubItems.Add(p.NameClass);
             lvi.SubItems.Add(p.Name.ToString());
             lvi.SubItems.Add(p.Amount.ToString());
             lvi.SubItems.Add(p.Price.ToString());
@@ -153,6 +160,7 @@ namespace jck_new
             }
             Product_buy p = new Product_buy();
             p.Code = this.txt_code.Text.Trim();
+            p.NameClass = this.comboBox1.SelectedItem.ToString();
             p.Name = this.txt_name.Text.Trim();
             p.Amount = Int32.Parse(this.num_amount.Text.Trim());
             p.Price = Double.Parse(this.txt_price.Text.Trim());
@@ -168,6 +176,7 @@ namespace jck_new
         {
             ListViewItem lvi = this.listView1.Items.Add(p.Id.ToString());
             lvi.SubItems.Add(p.Code.ToString());
+            lvi.SubItems.Add(p.NameClass.ToString());
             lvi.SubItems.Add(p.Name.ToString());
             lvi.SubItems.Add(p.Amount.ToString());
             lvi.SubItems.Add(p.Price.ToString());
@@ -185,6 +194,43 @@ namespace jck_new
                      listView.Items[i].BackColor = Color.WhiteSmoke;
                 }
             }
+        }
+
+        private void MenuItem_del_Click(object sender, EventArgs e)
+        {
+            if (this.listView1.SelectedItems.Count <1)
+            {
+                MessageBox.Show("请选择要删除的数据");
+                return;
+            }
+            MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+            DialogResult dr = MessageBox.Show("确定要删除吗?", "提示", messButton);
+            if (dr == DialogResult.OK)
+            {
+                ListViewItem lvi = this.listView1.SelectedItems[0];
+                int id = Int32.Parse(lvi.SubItems[0].Text);
+                ProductDao.deleteById(id);
+                lvi.Remove();
+            }
+            else
+            {
+            }
+           
+        }
+
+        private void MenuItem_edit_Click(object sender, EventArgs e)
+        {
+            if (this.listView1.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("请选择要编辑的数据");
+                return;
+            }
+            ListViewItem lvi = this.listView1.SelectedItems[0];
+            int id = Int32.Parse(lvi.SubItems[0].Text);
+            BuyEditForm buyEditForm = new BuyEditForm(id, this.listView1.SelectedIndices[0]);
+            buyEditForm._form = this;
+            buyEditForm.Owner = this;
+            buyEditForm.ShowDialog();
         }
     }
 }

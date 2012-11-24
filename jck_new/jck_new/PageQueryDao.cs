@@ -54,7 +54,7 @@ namespace Common
             product.Code = row["code"].ToString();
             product.NameClass = row["class"].ToString();
             product.Name = row["p_name"].ToString();
-            product.Amount = Int32.Parse(row["amount"].ToString());
+            product.Amount = Int32.Parse(row["p_amount"].ToString());
             product.Price_sale = Double.Parse(row["sale_price"].ToString());
 			product.Price = Double.Parse(row["price"].ToString());
             product.Other = row["other"].ToString();
@@ -103,7 +103,7 @@ namespace Common
             product.Code = row["code"].ToString();
             product.NameClass = row["class"].ToString();
             product.Name = row["p_name"].ToString();
-            product.Amount = Int32.Parse(row["amount"].ToString());
+            product.Amount = Int32.Parse(row["p_amount"].ToString());
             product.Price_sale = Double.Parse(row["sale_price"].ToString());
             product.Price = Double.Parse(row["price"].ToString());
             product.Other = row["other"].ToString();

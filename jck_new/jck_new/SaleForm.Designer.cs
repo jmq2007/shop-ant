@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txt_other = new System.Windows.Forms.TextBox();
             this.txt_price = new System.Windows.Forms.TextBox();
             this.txt_name = new System.Windows.Forms.TextBox();
@@ -55,9 +56,13 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.search_btn = new System.Windows.Forms.Button();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MenuItem_edit = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_del = new System.Windows.Forms.ToolStripMenuItem();
+            this.search_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.num_amount)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_other
@@ -223,6 +228,7 @@
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9});
+            this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(12, 70);
@@ -240,7 +246,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "条码";
-            this.columnHeader2.Width = 80;
+            this.columnHeader2.Width = 70;
             // 
             // columnHeader3
             // 
@@ -269,7 +275,34 @@
             // columnHeader8
             // 
             this.columnHeader8.Text = "时间";
-            this.columnHeader8.Width = 120;
+            this.columnHeader8.Width = 130;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "备注";
+            this.columnHeader9.Width = 80;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItem_edit,
+            this.MenuItem_del});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            // 
+            // MenuItem_edit
+            // 
+            this.MenuItem_edit.Name = "MenuItem_edit";
+            this.MenuItem_edit.Size = new System.Drawing.Size(152, 22);
+            this.MenuItem_edit.Text = "编辑";
+            this.MenuItem_edit.Click += new System.EventHandler(this.MenuItem_edit_Click);
+            // 
+            // MenuItem_del
+            // 
+            this.MenuItem_del.Name = "MenuItem_del";
+            this.MenuItem_del.Size = new System.Drawing.Size(152, 22);
+            this.MenuItem_del.Text = "删除";
+            this.MenuItem_del.Click += new System.EventHandler(this.MenuItem_del_Click);
             // 
             // search_btn
             // 
@@ -280,11 +313,6 @@
             this.search_btn.Text = "查找";
             this.search_btn.UseVisualStyleBackColor = true;
             this.search_btn.Click += new System.EventHandler(this.search_btn_Click);
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "备注";
-            this.columnHeader9.Width = 80;
             // 
             // SaleForm
             // 
@@ -315,6 +343,7 @@
             this.TabText = "销售";
             this.Text = "销售";
             ((System.ComponentModel.ISupportInitialize)(this.num_amount)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,7 +369,7 @@
         private System.Windows.Forms.Button nextP_btn;
         private System.Windows.Forms.Button prevP_btn;
         private System.Windows.Forms.Button firstP_btn;
-        private System.Windows.Forms.ListView listView1;
+        public System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -351,5 +380,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.Button search_btn;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_edit;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_del;
     }
 }
