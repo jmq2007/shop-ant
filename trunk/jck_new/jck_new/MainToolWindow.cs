@@ -30,7 +30,7 @@ namespace jck_new
             {
                 res = ds.Tables["ds"].Rows[i]["code"].ToString()+"||"
                     + ds.Tables["ds"].Rows[i]["p_name"].ToString() + "||"
-                    + ds.Tables["ds"].Rows[i]["price"].ToString() + "||"
+                    + ds.Tables["ds"].Rows[i]["sale_price"].ToString() + "||"
                     +  "\r\n"+res ;
             }
             this.txt_res.Text = res;

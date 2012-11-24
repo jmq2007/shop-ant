@@ -41,13 +41,13 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_all = new System.Windows.Forms.Button();
             this.labelMsg = new System.Windows.Forms.Label();
             this.lastP_btn = new System.Windows.Forms.Button();
             this.nextP_btn = new System.Windows.Forms.Button();
             this.prevP_btn = new System.Windows.Forms.Button();
             this.firstP_btn = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // comboBox1
@@ -57,8 +57,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "条码",
             "名称",
-            "类型",
-            "库存"});
+            "类型"});
             this.comboBox1.Location = new System.Drawing.Point(13, 13);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 20);
@@ -150,6 +149,11 @@
             this.columnHeader9.Text = "备注";
             this.columnHeader9.Width = 80;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "售出";
+            this.columnHeader1.Width = 40;
+            // 
             // btn_all
             // 
             this.btn_all.Location = new System.Drawing.Point(391, 11);
@@ -158,6 +162,7 @@
             this.btn_all.TabIndex = 21;
             this.btn_all.Text = "所有";
             this.btn_all.UseVisualStyleBackColor = true;
+            this.btn_all.Click += new System.EventHandler(this.btn_all_Click);
             // 
             // labelMsg
             // 
@@ -176,6 +181,7 @@
             this.lastP_btn.TabIndex = 25;
             this.lastP_btn.Text = ">|";
             this.lastP_btn.UseVisualStyleBackColor = true;
+            this.lastP_btn.Click += new System.EventHandler(this.lastP_btn_Click);
             // 
             // nextP_btn
             // 
@@ -185,6 +191,7 @@
             this.nextP_btn.TabIndex = 24;
             this.nextP_btn.Text = ">";
             this.nextP_btn.UseVisualStyleBackColor = true;
+            this.nextP_btn.Click += new System.EventHandler(this.nextP_btn_Click);
             // 
             // prevP_btn
             // 
@@ -194,6 +201,7 @@
             this.prevP_btn.TabIndex = 23;
             this.prevP_btn.Text = "<";
             this.prevP_btn.UseVisualStyleBackColor = true;
+            this.prevP_btn.Click += new System.EventHandler(this.prevP_btn_Click);
             // 
             // firstP_btn
             // 
@@ -203,11 +211,7 @@
             this.firstP_btn.TabIndex = 22;
             this.firstP_btn.Text = "|<";
             this.firstP_btn.UseVisualStyleBackColor = true;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "售出";
-            this.columnHeader1.Width = 40;
+            this.firstP_btn.Click += new System.EventHandler(this.firstP_btn_Click);
             // 
             // KcForm
             // 
