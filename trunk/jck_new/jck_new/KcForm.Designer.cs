@@ -141,7 +141,7 @@
             // 
             // columnHeader8
             // 
-            this.columnHeader8.Text = "时间";
+            this.columnHeader8.Text = "进货时间";
             this.columnHeader8.Width = 130;
             // 
             // columnHeader9

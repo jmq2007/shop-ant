@@ -37,11 +37,11 @@
             this.buy_btn = new System.Windows.Forms.ToolStripButton();
             this.kc_btn = new System.Windows.Forms.ToolStripButton();
             this.tj_btn = new System.Windows.Forms.ToolStripButton();
+            this.out_btn = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.help_btn = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.out_btn = new System.Windows.Forms.ToolStripButton();
             this.maintool.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,6 +125,14 @@
             this.tj_btn.Text = "统计";
             this.tj_btn.Click += new System.EventHandler(this.tj_btn_Click);
             // 
+            // out_btn
+            // 
+            this.out_btn.Image = ((System.Drawing.Image)(resources.GetObject("out_btn.Image")));
+            this.out_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.out_btn.Name = "out_btn";
+            this.out_btn.Size = new System.Drawing.Size(68, 36);
+            this.out_btn.Text = "导出";
+            // 
             // toolStripButton1
             // 
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
@@ -155,14 +163,6 @@
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // out_btn
-            // 
-            this.out_btn.Image = ((System.Drawing.Image)(resources.GetObject("out_btn.Image")));
-            this.out_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.out_btn.Name = "out_btn";
-            this.out_btn.Size = new System.Drawing.Size(68, 36);
-            this.out_btn.Text = "导出";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -174,7 +174,7 @@
             this.IsMdiContainer = true;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "销售系统 v1.0";
+            this.Text = "销售系统 v1.0 测试版";
             this.maintool.ResumeLayout(false);
             this.maintool.PerformLayout();
             this.ResumeLayout(false);

@@ -14,6 +14,12 @@ namespace jck_new
         public TjForm()
         {
             InitializeComponent();
+            comboBox1.SelectedIndex = 0;
+        }
+
+        private void btn_tj_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
