@@ -123,9 +123,9 @@ namespace Common
         public static Page getProducts_kc(int curPageIndex, Product_kc condition)
         {
             string sqlQuery = "SELECT tbl_buy.code AS code, (select class from tbl_buy where code=tmp_tblrk.code) AS class, (select p_name from tbl_buy where code=tmp_tblrk.code) AS p_name, (select price from tbl_buy where code=tmp_tblrk.code) AS price, (select price from tbl_buy where code=tmp_tblrk.code)*( 入库-IIf(IsNull(出库),0,出库) ) AS price_sale, (select buy_date from tbl_buy where code=tmp_tblrk.code) AS buy_date, (select other from tbl_buy where code=tmp_tblrk.code) AS other,IIf(IsNull(出库),0,出库) as amount_s, 入库-IIf(IsNull(出库),0,出库) AS kc "
-+"FROM (SELECT code,class,p_name, sum(p_amount) AS 入库 FROM tbl_buy GROUP BY code,class,p_name)  AS tmp_tblrk LEFT JOIN (SELECT code, sum(p_amount) AS 出库 FROM tbl_sale GROUP BY code)  AS tmp_tblck ON tmp_tblrk.code = tmp_tblck.code";
-            string sqlCount = "SELECT count(*) FROM (SELECT code,p_name, sum(p_amount) AS 入库 FROM tbl_buy GROUP BY code,p_name)  AS tmp_tblrk LEFT JOIN (SELECT code, sum(p_amount) AS 出库 FROM tbl_sale  GROUP BY code)  AS tmp_tblck ON tmp_tblrk.code = tmp_tblck.code ";
-            // string sqlOrder = " order by tbl_buy.buy_date desc";
++ "FROM (SELECT code,class,p_name,buy_date, sum(p_amount) AS 入库 FROM tbl_buy GROUP BY code,class,p_name,buy_date)  AS tmp_tblrk LEFT JOIN (SELECT code, sum(p_amount) AS 出库 FROM tbl_sale GROUP BY code)  AS tmp_tblck ON tmp_tblrk.code = tmp_tblck.code";
+            string sqlCount = "SELECT count(*) FROM (SELECT code,p_name,class, sum(p_amount) AS 入库 FROM tbl_buy GROUP BY code,p_name,class)  AS tmp_tblrk LEFT JOIN (SELECT code, sum(p_amount) AS 出库 FROM tbl_sale  GROUP BY code)  AS tmp_tblck ON tmp_tblrk.code = tmp_tblck.code ";
+            string sqlOrder = " order by tmp_tblrk.buy_date desc";
             if (condition != null)
             {
                 string sqlCondition = "";
@@ -133,12 +133,20 @@ namespace Common
                 {
                     sqlCondition = " where  tmp_tblrk.code='" + condition.Code.ToString()+"'";
                 }
+                else if (condition.Name != null)
+                {
+                    sqlCondition = " where  tmp_tblrk.p_name like '%" + condition.Name.ToString() + "%'";
+                }
+                else if (condition.NameClass != null)
+                {
+                    sqlCondition = " where  tmp_tblrk.class='" + condition.NameClass.ToString() + "'";
+                }
                  
                 //sqlQuery +=sqlCondition+sqlOrder;
                 sqlQuery += sqlCondition;
                 sqlCount += sqlCondition;
             }
-           // sqlQuery += sqlOrder;
+            sqlQuery += sqlOrder;
 
             int totalRecord = AccessDBUtil.ExecuteScalar(sqlCount);
             Page page = new Page(totalRecord, AccessPageUtil.PAGE_SIZE);
