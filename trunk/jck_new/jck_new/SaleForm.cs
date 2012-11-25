@@ -172,10 +172,22 @@ namespace jck_new
             p.Price_sale = Double.Parse(this.txt_saleprice.Text.Trim());
             p.BuyDate = DateTime.Now;
             p.Other = this.txt_other.Text.Trim();
-            int id = ProductDao.insert_sale(p);
-            //
-            p = ProductDao.getById_sale(id);
-            AddProduct_sale(p);
+             MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+             DialogResult dr = MessageBox.Show("确定以" + p.Price + "元卖出" + p.Name + "?", "提示", messButton);
+            if (dr == DialogResult.OK)
+            {
+                int id = ProductDao.insert_sale(p);
+                //
+                p = ProductDao.getById_sale(id);
+                AddProduct_sale(p);
+                this.txt_code.Text = "";
+                this.txt_name.Text = "";
+                this.txt_price.Text = "";
+                this.txt_other.Text= "";
+                this.txt_saleprice.Text = "";
+                //MessageBox.Show("售出成功", "提示");
+            }
+           
         }
 
         private void ChangeClour(ListView listView)
