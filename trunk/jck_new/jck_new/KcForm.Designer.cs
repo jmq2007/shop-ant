@@ -84,7 +84,7 @@
             this.btn_search.Location = new System.Drawing.Point(310, 11);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(75, 23);
-            this.btn_search.TabIndex = 3;
+            this.btn_search.TabIndex = 2;
             this.btn_search.Text = "查询";
             this.btn_search.UseVisualStyleBackColor = true;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
@@ -106,7 +106,7 @@
             this.listView1.Location = new System.Drawing.Point(13, 40);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(660, 205);
-            this.listView1.TabIndex = 20;
+            this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
@@ -159,7 +159,7 @@
             this.btn_all.Location = new System.Drawing.Point(391, 11);
             this.btn_all.Name = "btn_all";
             this.btn_all.Size = new System.Drawing.Size(75, 23);
-            this.btn_all.TabIndex = 21;
+            this.btn_all.TabIndex = 3;
             this.btn_all.Text = "所有";
             this.btn_all.UseVisualStyleBackColor = true;
             this.btn_all.Click += new System.EventHandler(this.btn_all_Click);
@@ -178,7 +178,7 @@
             this.lastP_btn.Location = new System.Drawing.Point(550, 272);
             this.lastP_btn.Name = "lastP_btn";
             this.lastP_btn.Size = new System.Drawing.Size(25, 28);
-            this.lastP_btn.TabIndex = 25;
+            this.lastP_btn.TabIndex = 8;
             this.lastP_btn.Text = ">|";
             this.lastP_btn.UseVisualStyleBackColor = true;
             this.lastP_btn.Click += new System.EventHandler(this.lastP_btn_Click);
@@ -188,7 +188,7 @@
             this.nextP_btn.Location = new System.Drawing.Point(519, 272);
             this.nextP_btn.Name = "nextP_btn";
             this.nextP_btn.Size = new System.Drawing.Size(25, 28);
-            this.nextP_btn.TabIndex = 24;
+            this.nextP_btn.TabIndex = 7;
             this.nextP_btn.Text = ">";
             this.nextP_btn.UseVisualStyleBackColor = true;
             this.nextP_btn.Click += new System.EventHandler(this.nextP_btn_Click);
@@ -198,7 +198,7 @@
             this.prevP_btn.Location = new System.Drawing.Point(470, 272);
             this.prevP_btn.Name = "prevP_btn";
             this.prevP_btn.Size = new System.Drawing.Size(25, 28);
-            this.prevP_btn.TabIndex = 23;
+            this.prevP_btn.TabIndex = 6;
             this.prevP_btn.Text = "<";
             this.prevP_btn.UseVisualStyleBackColor = true;
             this.prevP_btn.Click += new System.EventHandler(this.prevP_btn_Click);
@@ -208,7 +208,7 @@
             this.firstP_btn.Location = new System.Drawing.Point(439, 272);
             this.firstP_btn.Name = "firstP_btn";
             this.firstP_btn.Size = new System.Drawing.Size(25, 28);
-            this.firstP_btn.TabIndex = 22;
+            this.firstP_btn.TabIndex = 5;
             this.firstP_btn.Text = "|<";
             this.firstP_btn.UseVisualStyleBackColor = true;
             this.firstP_btn.Click += new System.EventHandler(this.firstP_btn_Click);
