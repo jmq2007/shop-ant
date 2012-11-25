@@ -46,6 +46,18 @@ namespace jck_new
             lvi.SubItems.Add(p.BuyDate.ToString());
             lvi.SubItems.Add(p.Other.ToString());
         }
+        private void InsertProduct_sale(Product_sale p)
+        {
+            ListViewItem lvi = this.listView1.Items.Insert(0, new ListViewItem(p.Id.ToString()));
+            lvi.SubItems.Add(p.Code);
+            lvi.SubItems.Add(p.NameClass.ToString());
+            lvi.SubItems.Add(p.Name.ToString());
+            lvi.SubItems.Add(p.Price_sale.ToString());
+            lvi.SubItems.Add(p.Amount.ToString());
+            lvi.SubItems.Add(p.Price.ToString());
+            lvi.SubItems.Add(p.BuyDate.ToString());
+            lvi.SubItems.Add(p.Other.ToString());
+        }
         private void search_btn_Click(object sender, EventArgs e)
         {
             product_buy_search = ProductDao.getByCode(this.txt_code.Text);
@@ -179,7 +191,7 @@ namespace jck_new
                 int id = ProductDao.insert_sale(p);
                 //
                 p = ProductDao.getById_sale(id);
-                AddProduct_sale(p);
+                InsertProduct_sale(p);
                 this.txt_code.Text = "";
                 this.txt_name.Text = "";
                 this.txt_price.Text = "";

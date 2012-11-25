@@ -172,7 +172,7 @@ namespace jck_new
             int id = ProductDao.insert(p);
             //
             p = ProductDao.getById(id);
-            AddProduct(p);
+            Insertroduct(p);
         }
         private void AddProduct(Product_buy p)
         {
@@ -183,6 +183,19 @@ namespace jck_new
             lvi.SubItems.Add(p.Price.ToString());
             lvi.SubItems.Add(p.Amount.ToString());
             
+            lvi.SubItems.Add(p.Price_sale.ToString());
+            lvi.SubItems.Add(p.BuyDate.ToString());
+            lvi.SubItems.Add(p.Other.ToString());
+        }
+        private void Insertroduct(Product_buy p)
+        {
+            ListViewItem lvi = this.listView1.Items.Insert(0, new ListViewItem(p.Id.ToString()));
+            lvi.SubItems.Add(p.Code.ToString());
+            lvi.SubItems.Add(p.NameClass.ToString());
+            lvi.SubItems.Add(p.Name.ToString());
+            lvi.SubItems.Add(p.Price.ToString());
+            lvi.SubItems.Add(p.Amount.ToString());
+
             lvi.SubItems.Add(p.Price_sale.ToString());
             lvi.SubItems.Add(p.BuyDate.ToString());
             lvi.SubItems.Add(p.Other.ToString());
