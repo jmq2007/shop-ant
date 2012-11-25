@@ -331,5 +331,31 @@ namespace Common
             DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
             return ds;
         }
+
+        public static DataSet getAllLb()
+        {
+            string sql = "select id,class"
+                + " FROM tbl_class";
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql);
+            return ds;
+        }
+
+        public static int insert_lb(string name)
+        {
+            string sql = "insert into tbl_class(class)values(?);";
+            OleDbParameter[] parameters = new OleDbParameter[1];
+            parameters[0] = new OleDbParameter("@class", OleDbType.VarChar, 50);
+            parameters[0].Value = name;
+            return AccessDBUtil.ExecuteInsert(sql, parameters);
+        }
+
+        public static int deleteLbById(int id)
+        {
+            string sql = "delete from tbl_class where id=?";
+            OleDbParameter[] parameters = new OleDbParameter[1];
+            parameters[0] = new OleDbParameter("@id", OleDbType.Integer);
+            parameters[0].Value = id;
+            return AccessDBUtil.ExecuteNonQuery(sql, parameters);
+        }
 	}
 }
