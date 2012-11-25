@@ -21,6 +21,7 @@ namespace jck_new
         {
             InitializeComponent();
             DataSet ds = ProductDao.allCalss();
+            this.num_amount.Value = 1;
 
             for (int i=0; i < ds.Tables["ds"].Rows.Count; i++)
             {

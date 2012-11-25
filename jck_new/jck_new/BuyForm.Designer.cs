@@ -93,7 +93,7 @@
             this.firstP_btn.Location = new System.Drawing.Point(435, 281);
             this.firstP_btn.Name = "firstP_btn";
             this.firstP_btn.Size = new System.Drawing.Size(25, 28);
-            this.firstP_btn.TabIndex = 1;
+            this.firstP_btn.TabIndex = 10;
             this.firstP_btn.Text = "|<";
             this.firstP_btn.UseVisualStyleBackColor = true;
             this.firstP_btn.Click += new System.EventHandler(this.firstP_btn_Click);
@@ -103,7 +103,7 @@
             this.prevP_btn.Location = new System.Drawing.Point(466, 281);
             this.prevP_btn.Name = "prevP_btn";
             this.prevP_btn.Size = new System.Drawing.Size(25, 28);
-            this.prevP_btn.TabIndex = 2;
+            this.prevP_btn.TabIndex = 11;
             this.prevP_btn.Text = "<";
             this.prevP_btn.UseVisualStyleBackColor = true;
             this.prevP_btn.Click += new System.EventHandler(this.prevP_btn_Click);
@@ -113,7 +113,7 @@
             this.nextP_btn.Location = new System.Drawing.Point(515, 281);
             this.nextP_btn.Name = "nextP_btn";
             this.nextP_btn.Size = new System.Drawing.Size(25, 28);
-            this.nextP_btn.TabIndex = 3;
+            this.nextP_btn.TabIndex = 12;
             this.nextP_btn.Text = ">";
             this.nextP_btn.UseVisualStyleBackColor = true;
             this.nextP_btn.Click += new System.EventHandler(this.nextP_btn_Click);
@@ -123,7 +123,7 @@
             this.lastP_btn.Location = new System.Drawing.Point(546, 281);
             this.lastP_btn.Name = "lastP_btn";
             this.lastP_btn.Size = new System.Drawing.Size(25, 28);
-            this.lastP_btn.TabIndex = 4;
+            this.lastP_btn.TabIndex = 13;
             this.lastP_btn.Text = ">|";
             this.lastP_btn.UseVisualStyleBackColor = true;
             this.lastP_btn.Click += new System.EventHandler(this.lastP_btn_Click);
@@ -196,7 +196,7 @@
             this.add_btn.Location = new System.Drawing.Point(530, 40);
             this.add_btn.Name = "add_btn";
             this.add_btn.Size = new System.Drawing.Size(75, 23);
-            this.add_btn.TabIndex = 12;
+            this.add_btn.TabIndex = 8;
             this.add_btn.Text = "添加进货";
             this.add_btn.UseVisualStyleBackColor = true;
             this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
@@ -206,42 +206,42 @@
             this.txt_code.Location = new System.Drawing.Point(54, 10);
             this.txt_code.Name = "txt_code";
             this.txt_code.Size = new System.Drawing.Size(100, 21);
-            this.txt_code.TabIndex = 13;
+            this.txt_code.TabIndex = 1;
             // 
             // num_amount
             // 
             this.num_amount.Location = new System.Drawing.Point(209, 11);
             this.num_amount.Name = "num_amount";
             this.num_amount.Size = new System.Drawing.Size(100, 21);
-            this.num_amount.TabIndex = 14;
+            this.num_amount.TabIndex = 2;
             // 
             // txt_saleprice
             // 
             this.txt_saleprice.Location = new System.Drawing.Point(505, 10);
             this.txt_saleprice.Name = "txt_saleprice";
             this.txt_saleprice.Size = new System.Drawing.Size(100, 21);
-            this.txt_saleprice.TabIndex = 15;
+            this.txt_saleprice.TabIndex = 4;
             // 
             // txt_name
             // 
             this.txt_name.Location = new System.Drawing.Point(54, 43);
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(100, 21);
-            this.txt_name.TabIndex = 16;
+            this.txt_name.TabIndex = 5;
             // 
             // txt_price
             // 
             this.txt_price.Location = new System.Drawing.Point(357, 10);
             this.txt_price.Name = "txt_price";
             this.txt_price.Size = new System.Drawing.Size(100, 21);
-            this.txt_price.TabIndex = 17;
+            this.txt_price.TabIndex = 3;
             // 
             // txt_other
             // 
             this.txt_other.Location = new System.Drawing.Point(357, 43);
             this.txt_other.Name = "txt_other";
             this.txt_other.Size = new System.Drawing.Size(167, 21);
-            this.txt_other.TabIndex = 18;
+            this.txt_other.TabIndex = 7;
             // 
             // label7
             // 
@@ -259,7 +259,7 @@
             this.comboBox1.Location = new System.Drawing.Point(209, 43);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 20);
-            this.comboBox1.TabIndex = 20;
+            this.comboBox1.TabIndex = 6;
             // 
             // listView1
             // 
@@ -279,7 +279,7 @@
             this.listView1.Location = new System.Drawing.Point(15, 70);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(660, 205);
-            this.listView1.TabIndex = 21;
+            this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
