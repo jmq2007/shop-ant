@@ -255,7 +255,7 @@ namespace Common
         }
         public static double dayPrice()
         {
-            string sql = "select sum(sale_price) from tbl_sale where (DateDiff('d',sale_date,Date())=0)";
+            string sql = "select sum(price) from tbl_sale where (DateDiff('d',sale_date,Date())=0)";
             int ds = AccessDBUtil.ExecuteScalar(sql);
             return ds;
         }
@@ -268,8 +268,67 @@ namespace Common
         }
         public static double mPrice()
         {
-            string sql = "select sum(sale_price) from tbl_sale where (DateDiff('m',sale_date,Date())=0)";
+            string sql = "select sum(price) from tbl_sale where (DateDiff('m',sale_date,Date())=0)";
             int ds = AccessDBUtil.ExecuteScalar(sql);
+            return ds;
+        }
+
+      /*  public static DataSet searchByDay_je(string key1,string key2)
+        {
+            string sql = "SELECT Month(sale_date) & \"月\"& Day(sale_date) &\"日\" AS 日期, sum(price) AS 金额 "
+                +"FROM tbl_sale "
+                + "WHERE sale_date between ? and ? "
+                +"GROUP BY Month(sale_date) & \"月\" & Day(sale_date) & \"日\"";
+            OleDbParameter[] parameters = new OleDbParameter[2];
+            parameters[0] = new OleDbParameter("@1", OleDbType.Date);
+            parameters[0].Value = key1;
+            parameters[1] = new OleDbParameter("@2", OleDbType.Date);
+            parameters[1].Value = key2;
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
+            return ds;
+        }
+        public static DataSet searchByDay_lr(string key1, string key2)
+        {
+            string sql = "select Month(tbl.sale_date) & \"月\" & Day(tbl.sale_date) & \"日\" as 日期,sum(tbl.利润1) as 利润 from (SELECT b.sale_date, b.code, a.price, b.p_amount, b.price, (b.price-a.price*b.p_amount) AS 利润1"
++" FROM tbl_buy AS a, tbl_sale AS b"
++ " WHERE a.code=b.code) as tbl WHERE tbl.sale_date between ? and ? "
++" GROUP BY  Month(tbl.sale_date) & \"月\" & Day(tbl.sale_date) & \"日\"";
+            OleDbParameter[] parameters = new OleDbParameter[2];
+            parameters[0] = new OleDbParameter("@1", OleDbType.Date);
+            parameters[0].Value = key1;
+            parameters[1] = new OleDbParameter("@2", OleDbType.Date);
+            parameters[1].Value = key2;
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
+            return ds;
+        }
+        */
+        public static DataSet tj_day(string key1, string key2)
+        {
+            string sql = "select Month(tbl.sale_date) & \"月\" & Day(tbl.sale_date) & \"日\" as 日期,sum(tbl.利润1) as 利润 ,sum(tbl.b.price)as 金额 from (SELECT b.sale_date, b.code, a.price, b.p_amount, b.price, (b.price-a.price*b.p_amount) AS 利润1"
+                + " FROM tbl_buy AS a, tbl_sale AS b"
+                + " WHERE a.code=b.code) as tbl WHERE tbl.sale_date between ? and ? "
+                + " GROUP BY  Month(tbl.sale_date) & \"月\" & Day(tbl.sale_date) & \"日\"";
+            OleDbParameter[] parameters = new OleDbParameter[2];
+            parameters[0] = new OleDbParameter("@1", OleDbType.Date);
+            parameters[0].Value = key1;
+            parameters[1] = new OleDbParameter("@2", OleDbType.Date);
+            parameters[1].Value = key2;
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
+            return ds;
+        }
+
+        public static DataSet tj_mon(string key1, string key2)
+        {
+            string sql = "select Month(tbl.sale_date) & \"月\" as 日期,sum(tbl.利润1) as 利润 ,sum(tbl.b.price)as 金额 from (SELECT b.sale_date, b.code, a.price, b.p_amount, b.price, (b.price-a.price*b.p_amount) AS 利润1"
+                + " FROM tbl_buy AS a, tbl_sale AS b"
+                + " WHERE a.code=b.code) as tbl WHERE tbl.sale_date between ? and ? "
+                + " GROUP BY  Month(tbl.sale_date) & \"月\"";
+            OleDbParameter[] parameters = new OleDbParameter[2];
+            parameters[0] = new OleDbParameter("@1", OleDbType.Date);
+            parameters[0].Value = key1;
+            parameters[1] = new OleDbParameter("@2", OleDbType.Date);
+            parameters[1].Value = key2;
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
             return ds;
         }
 	}
