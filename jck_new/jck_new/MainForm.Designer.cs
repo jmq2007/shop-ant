@@ -37,12 +37,12 @@
             this.buy_btn = new System.Windows.Forms.ToolStripButton();
             this.kc_btn = new System.Windows.Forms.ToolStripButton();
             this.tj_btn = new System.Windows.Forms.ToolStripButton();
+            this.lb_btn = new System.Windows.Forms.ToolStripButton();
             this.out_btn = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.help_btn = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.maintool.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             this.buy_btn,
             this.kc_btn,
             this.tj_btn,
-            this.toolStripButton2,
+            this.lb_btn,
             this.out_btn,
             this.toolStripButton1,
             this.toolStripSeparator2,
@@ -127,6 +127,15 @@
             this.tj_btn.Text = "统计";
             this.tj_btn.Click += new System.EventHandler(this.tj_btn_Click);
             // 
+            // lb_btn
+            // 
+            this.lb_btn.Image = ((System.Drawing.Image)(resources.GetObject("lb_btn.Image")));
+            this.lb_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.lb_btn.Name = "lb_btn";
+            this.lb_btn.Size = new System.Drawing.Size(68, 36);
+            this.lb_btn.Text = "类别";
+            this.lb_btn.Click += new System.EventHandler(this.lb_btn_Click);
+            // 
             // out_btn
             // 
             this.out_btn.Image = ((System.Drawing.Image)(resources.GetObject("out_btn.Image")));
@@ -165,14 +174,6 @@
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(68, 36);
-            this.toolStripButton2.Text = "类别";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -207,7 +208,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton out_btn;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton lb_btn;
     }
 }
 

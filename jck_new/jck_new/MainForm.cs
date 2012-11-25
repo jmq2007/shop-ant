@@ -20,6 +20,7 @@ namespace jck_new
         private TjForm tjForm = new TjForm();
         private KcForm kcForm = new KcForm();
         private HelpForm helpForm = new HelpForm();
+        private LbForm lbForm = new LbForm();
 
         #endregion
         public MainForm()
@@ -73,6 +74,13 @@ namespace jck_new
             if (helpForm == null || helpForm.IsDisposed)
                 helpForm = new HelpForm();
             helpForm.Show(this.dockPanel1);
+        }
+
+        private void lb_btn_Click(object sender, EventArgs e)
+        {
+            if (lbForm == null || lbForm.IsDisposed)
+                lbForm = new LbForm();
+            lbForm.Show(this.dockPanel1);
         }
     }
 }
