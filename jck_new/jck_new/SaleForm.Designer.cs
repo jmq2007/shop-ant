@@ -189,6 +189,7 @@
             this.lastP_btn.TabIndex = 23;
             this.lastP_btn.Text = ">|";
             this.lastP_btn.UseVisualStyleBackColor = true;
+            this.lastP_btn.Click += new System.EventHandler(this.lastP_btn_Click);
             // 
             // nextP_btn
             // 
@@ -198,6 +199,7 @@
             this.nextP_btn.TabIndex = 22;
             this.nextP_btn.Text = ">";
             this.nextP_btn.UseVisualStyleBackColor = true;
+            this.nextP_btn.Click += new System.EventHandler(this.nextP_btn_Click);
             // 
             // prevP_btn
             // 
@@ -207,6 +209,7 @@
             this.prevP_btn.TabIndex = 21;
             this.prevP_btn.Text = "<";
             this.prevP_btn.UseVisualStyleBackColor = true;
+            this.prevP_btn.Click += new System.EventHandler(this.prevP_btn_Click);
             // 
             // firstP_btn
             // 
@@ -216,6 +219,7 @@
             this.firstP_btn.TabIndex = 20;
             this.firstP_btn.Text = "|<";
             this.firstP_btn.UseVisualStyleBackColor = true;
+            this.firstP_btn.Click += new System.EventHandler(this.firstP_btn_Click);
             // 
             // listView1
             // 

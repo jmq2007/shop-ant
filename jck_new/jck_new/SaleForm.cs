@@ -63,7 +63,7 @@ namespace jck_new
         {
             this.listView1.Items.Clear();
             curPageIndex++;
-            Page page = PageQueryDao.getProducts_buy(curPageIndex);
+            Page page = PageQueryDao.getProducts_sale(curPageIndex);
             List<Product_sale> ls = (List<Product_sale>)page.ValueList;
             foreach (Product_sale p in ls)
             {
@@ -82,7 +82,7 @@ namespace jck_new
         {
             this.listView1.Items.Clear();
             curPageIndex--;
-            Page page = PageQueryDao.getProducts_buy(curPageIndex);
+            Page page = PageQueryDao.getProducts_sale(curPageIndex);
             List<Product_sale> ls = (List<Product_sale>)page.ValueList;
             foreach (Product_sale p in ls)
             {
@@ -100,7 +100,7 @@ namespace jck_new
         private void lastP_btn_Click(object sender, EventArgs e)
         {
             this.listView1.Items.Clear();
-            Page page = PageQueryDao.getProducts_buy(totalPage - 1);
+            Page page = PageQueryDao.getProducts_sale(totalPage - 1);
             List<Product_sale> ls = (List<Product_sale>)page.ValueList;
             foreach (Product_sale p in ls)
             {
@@ -118,7 +118,7 @@ namespace jck_new
         private void firstP_btn_Click(object sender, EventArgs e)
         {
             this.listView1.Items.Clear();
-            Page page = PageQueryDao.getProducts_buy(0);
+            Page page = PageQueryDao.getProducts_sale(0);
             List<Product_sale> ls = (List<Product_sale>)page.ValueList;
             foreach (Product_sale p in ls)
             {
