@@ -143,6 +143,7 @@
             this.out_btn.Name = "out_btn";
             this.out_btn.Size = new System.Drawing.Size(68, 36);
             this.out_btn.Text = "导出";
+            this.out_btn.Click += new System.EventHandler(this.out_btn_Click);
             // 
             // bf_btn
             // 

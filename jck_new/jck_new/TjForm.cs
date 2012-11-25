@@ -21,8 +21,8 @@ namespace jck_new
 
         private void btn_tj_Click(object sender, EventArgs e)
         {
-            string key1 = dateTimePicker1.Text;
-            string key2 = dateTimePicker2.Text;
+            string key1 = dateTimePicker1.Value.ToString("yyyy-MM-dd") + " 00:00:00";
+            string key2 = dateTimePicker2.Value.ToString("yyyy-MM-dd") + " 23:59:59";
             if (comboBox1.SelectedIndex == 0)
             {
                 chart1.DataSource = ProductDao.tj_day(key1, key2);
