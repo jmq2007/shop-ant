@@ -39,7 +39,7 @@
             this.tj_btn = new System.Windows.Forms.ToolStripButton();
             this.lb_btn = new System.Windows.Forms.ToolStripButton();
             this.out_btn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.bf_btn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.help_btn = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -68,7 +68,7 @@
             this.tj_btn,
             this.lb_btn,
             this.out_btn,
-            this.toolStripButton1,
+            this.bf_btn,
             this.toolStripSeparator2,
             this.help_btn});
             this.maintool.Location = new System.Drawing.Point(0, 0);
@@ -144,13 +144,14 @@
             this.out_btn.Size = new System.Drawing.Size(68, 36);
             this.out_btn.Text = "导出";
             // 
-            // toolStripButton1
+            // bf_btn
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(68, 36);
-            this.toolStripButton1.Text = "备份";
+            this.bf_btn.Image = ((System.Drawing.Image)(resources.GetObject("bf_btn.Image")));
+            this.bf_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bf_btn.Name = "bf_btn";
+            this.bf_btn.Size = new System.Drawing.Size(68, 36);
+            this.bf_btn.Text = "备份";
+            this.bf_btn.Click += new System.EventHandler(this.bf_btn_Click);
             // 
             // toolStripSeparator2
             // 
@@ -206,7 +207,7 @@
         private System.Windows.Forms.ToolStripButton help_btn;
         private System.Windows.Forms.ToolStripButton kc_btn;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton bf_btn;
         private System.Windows.Forms.ToolStripButton out_btn;
         private System.Windows.Forms.ToolStripButton lb_btn;
     }

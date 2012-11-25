@@ -357,5 +357,31 @@ namespace Common
             parameters[0].Value = id;
             return AccessDBUtil.ExecuteNonQuery(sql, parameters);
         }
+
+        public static int updateBak(string date)
+        {
+            string sql = "update tbl_user set bak=?";
+            OleDbParameter[] parameters = new OleDbParameter[1];
+            parameters[0] = new OleDbParameter("@bak", OleDbType.Date);
+            parameters[0].Value = date;
+
+            return AccessDBUtil.ExecuteNonQuery(sql, parameters);
+
+
+        }
+        public static string getBak()
+        {
+            string sql = "select bak "
+                + " FROM tbl_user";
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql);
+            if (ds.Tables["ds"].Rows.Count > 0)
+            {
+                return ds.Tables["ds"].Rows[0]["bak"].ToString();
+            }
+            else
+            {
+                return null;
+            }
+        }
 	}
 }
