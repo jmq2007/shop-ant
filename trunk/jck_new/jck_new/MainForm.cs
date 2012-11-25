@@ -22,6 +22,7 @@ namespace jck_new
         private HelpForm helpForm = new HelpForm();
         private LbForm lbForm = new LbForm();
         private BfForm bfForm = new BfForm();
+        private OutForm outForm = new OutForm();
 
         #endregion
         public MainForm()
@@ -89,6 +90,13 @@ namespace jck_new
             if (bfForm == null || bfForm.IsDisposed)
                 bfForm = new BfForm();
             bfForm.Show(this.dockPanel1);
+        }
+
+        private void out_btn_Click(object sender, EventArgs e)
+        {
+            if (outForm == null || outForm.IsDisposed)
+                outForm = new OutForm();
+            outForm.Show(this.dockPanel1);
         }
     }
 }

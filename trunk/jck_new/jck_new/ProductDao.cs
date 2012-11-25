@@ -383,5 +383,36 @@ namespace Common
                 return null;
             }
         }
+
+
+        public static DataTable outSale(string key1, string key2)
+        {
+            string sql = "SELECT s.id AS id, s.code AS 条码, b.class AS 类别, b.p_name AS 名称,"
+               + "s.sale_price AS 应售单价, s.p_amount AS 数量, s.price AS 实际总价,"
+               + "s.sale_date AS 售出时间, s.other AS 备注 "
+               + "FROM tbl_sale AS s, tbl_buy AS b "
+               + "WHERE s.code=b.code and s.sale_date between ? and ?"; 
+            OleDbParameter[] parameters = new OleDbParameter[2];
+            parameters[0] = new OleDbParameter("@1", OleDbType.Date);
+            parameters[0].Value = key1;
+            parameters[1] = new OleDbParameter("@2", OleDbType.Date);
+            parameters[1].Value = key2;
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
+            return ds.Tables["ds"];
+        }
+
+        public static DataTable outBuy(string key1, string key2)
+        {
+            string sql = "select id,code as 条码,class as 类别,p_name as 名称,p_amount as 数量,sale_price as 标价,price as 进价,other as 备注,buy_date as 进货时间 "
+                +" from tbl_buy"
+                + " where buy_date between ? and ?";
+            OleDbParameter[] parameters = new OleDbParameter[2];
+            parameters[0] = new OleDbParameter("@1", OleDbType.Date);
+            parameters[0].Value = key1;
+            parameters[1] = new OleDbParameter("@2", OleDbType.Date);
+            parameters[1].Value = key2;
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
+            return ds.Tables["ds"];
+        }
 	}
 }
