@@ -110,6 +110,18 @@
     <Compile Include="LbForm.Designer.cs">
       <DependentUpon>LbForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogoffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogoffForm.Designer.cs">
+      <DependentUpon>LogoffForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +159,9 @@
     <Compile Include="SaleForm.Designer.cs">
       <DependentUpon>SaleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TjForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +187,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="lbForm.resx">
       <DependentUpon>LbForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogoffForm.resx">
+      <DependentUpon>LogoffForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -217,6 +238,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="513.ico" />
+    <None Include="Resources\splashbg.png" />
+    <None Include="Resources\w6.png" />
+    <None Include="Resources\q2.png" />
+    <None Include="Resources\onebit_01.png" />
+    <None Include="Resources\onebit_02.png" />
+    <None Include="Resources\onebit_03.png" />
+    <None Include="Resources\onebit_04.png" />
+    <None Include="Resources\onebit_05.png" />
+    <None Include="Resources\onebit_10.png" />
+    <None Include="Resources\onebit_12.png" />
+    <None Include="Resources\onebit_13.png" />
+    <None Include="Resources\onebit_14.png" />
+    <None Include="Resources\onebit_18.png" />
+    <None Include="Resources\onebit_20.png" />
+    <None Include="Resources\onebit_23.png" />
+    <None Include="Resources\onebit_24.png" />
+    <None Include="Resources\onebit_43.png" />
+    <None Include="Resources\onebit_44.png" />
+    <Content Include="splashbg.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

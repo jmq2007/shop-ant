@@ -15,8 +15,8 @@ namespace Common
 		private ProductDao()
 		{
 		}
-		//潎擖怴??丆曉夞帺?惗惉揑ID
-		public static int insert(Product_buy p)
+        #region 进货表 增删改查
+        public static int insert(Product_buy p)
 		{
             string sql = "insert into tbl_buy(code,p_name,class,p_amount,sale_price,price,buy_date,other)values(?,?,?,?,?,?,?,?);";
 			OleDbParameter[] parameters = new OleDbParameter[8];
@@ -115,8 +115,10 @@ namespace Common
             }
            
         }
+        #endregion
 
-        ///////////////////////////////////////////////////////
+
+        #region 销售表 增删改查
         public static int insert_sale(Product_sale p)
         {
             string sql = "insert into tbl_sale(code,sale_price,p_amount,price,sale_date,other)values(?,?,?,?,?,?);";
@@ -225,16 +227,10 @@ namespace Common
             }
 
         }
+        #endregion
 
-        public static DataSet allCalss()
-        {
-            string sql = "select id,class from tbl_class ";
-            //OleDbParameter[] parameters = new OleDbParameter[1];
-            DataSet ds = AccessDBUtil.ExecuteQuery(sql);
 
-            return ds;
-        }
-
+        #region 首页查询
         public static DataSet searchByKey(string key)
         {
             string sql = "select id,code,class,p_name,p_amount,sale_price,price,buy_date,other from tbl_buy where code like ? or p_name like '%'+@p_name+'%'";
@@ -272,36 +268,10 @@ namespace Common
             int ds = AccessDBUtil.ExecuteScalar(sql);
             return ds;
         }
+        #endregion
 
-      /*  public static DataSet searchByDay_je(string key1,string key2)
-        {
-            string sql = "SELECT Month(sale_date) & \"月\"& Day(sale_date) &\"日\" AS 日期, sum(price) AS 金额 "
-                +"FROM tbl_sale "
-                + "WHERE sale_date between ? and ? "
-                +"GROUP BY Month(sale_date) & \"月\" & Day(sale_date) & \"日\"";
-            OleDbParameter[] parameters = new OleDbParameter[2];
-            parameters[0] = new OleDbParameter("@1", OleDbType.Date);
-            parameters[0].Value = key1;
-            parameters[1] = new OleDbParameter("@2", OleDbType.Date);
-            parameters[1].Value = key2;
-            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
-            return ds;
-        }
-        public static DataSet searchByDay_lr(string key1, string key2)
-        {
-            string sql = "select Month(tbl.sale_date) & \"月\" & Day(tbl.sale_date) & \"日\" as 日期,sum(tbl.利润1) as 利润 from (SELECT b.sale_date, b.code, a.price, b.p_amount, b.price, (b.price-a.price*b.p_amount) AS 利润1"
-+" FROM tbl_buy AS a, tbl_sale AS b"
-+ " WHERE a.code=b.code) as tbl WHERE tbl.sale_date between ? and ? "
-+" GROUP BY  Month(tbl.sale_date) & \"月\" & Day(tbl.sale_date) & \"日\"";
-            OleDbParameter[] parameters = new OleDbParameter[2];
-            parameters[0] = new OleDbParameter("@1", OleDbType.Date);
-            parameters[0].Value = key1;
-            parameters[1] = new OleDbParameter("@2", OleDbType.Date);
-            parameters[1].Value = key2;
-            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
-            return ds;
-        }
-        */
+
+        #region 统计查询
         public static DataSet tj_day(string key1, string key2)
         {
             string sql = "select Month(tbl.sale_date) & \"月\" & Day(tbl.sale_date) & \"日\" as 日期,sum(tbl.利润1) as 利润 ,sum(tbl.b.price)as 金额 from (SELECT b.sale_date, b.code, a.price, b.p_amount, b.price, (b.price-a.price*b.p_amount) AS 利润1"
@@ -332,6 +302,51 @@ namespace Common
             return ds;
         }
 
+        public static DataTable outSale(string key1, string key2)
+        {
+            string sql = "SELECT s.id AS id, s.code AS 条码, b.class AS 类别, b.p_name AS 名称,"
+               + "s.sale_price AS 应售单价, s.p_amount AS 数量, s.price AS 实际总价,"
+               + "s.sale_date AS 售出时间, s.other AS 备注 "
+               + "FROM tbl_sale AS s, tbl_buy AS b "
+               + "WHERE s.code=b.code and s.sale_date between ? and ?";
+            OleDbParameter[] parameters = new OleDbParameter[2];
+            parameters[0] = new OleDbParameter("@1", OleDbType.Date);
+            parameters[0].Value = key1;
+            parameters[1] = new OleDbParameter("@2", OleDbType.Date);
+            parameters[1].Value = key2;
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
+            return ds.Tables["ds"];
+        }
+
+        public static DataTable outBuy(string key1, string key2)
+        {
+            string sql = "select id,code as 条码,class as 类别,p_name as 名称,p_amount as 数量,sale_price as 标价,price as 进价,other as 备注,buy_date as 进货时间 "
+                + " from tbl_buy"
+                + " where buy_date between ? and ?";
+            OleDbParameter[] parameters = new OleDbParameter[2];
+            parameters[0] = new OleDbParameter("@1", OleDbType.Date);
+            parameters[0].Value = key1;
+            parameters[1] = new OleDbParameter("@2", OleDbType.Date);
+            parameters[1].Value = key2;
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
+            return ds.Tables["ds"];
+        }
+
+        public static int getKcByCode(string key)
+        {
+            string sql = "SELECT 入库-IIf(IsNull(出库),0,出库) AS kc "
+                + "FROM (SELECT code, sum(p_amount) AS 入库 FROM tbl_buy GROUP BY code)  AS tmp_tblrk LEFT JOIN (SELECT code, sum(p_amount) AS 出库 FROM tbl_sale GROUP BY code)  AS tmp_tblck ON tmp_tblrk.code = tmp_tblck.code"
+                + " where tbl_buy.code=?";
+            OleDbParameter[] parameters = new OleDbParameter[1];
+            parameters[0] = new OleDbParameter("@tbl_buy.code", OleDbType.VarChar, 50);
+            parameters[0].Value = key;
+            int ds = AccessDBUtil.ExecuteScalar(sql, parameters);
+            return ds;
+        }
+        #endregion
+
+
+        #region 类别表增删查
         public static DataSet getAllLb()
         {
             string sql = "select id,class"
@@ -357,7 +372,10 @@ namespace Common
             parameters[0].Value = id;
             return AccessDBUtil.ExecuteNonQuery(sql, parameters);
         }
+        #endregion
 
+
+        #region user表操作
         public static int updateBak(string date)
         {
             string sql = "update tbl_user set bak=?";
@@ -384,35 +402,32 @@ namespace Common
             }
         }
 
-
-        public static DataTable outSale(string key1, string key2)
+        public static int getLogin(string key1,string key2)
         {
-            string sql = "SELECT s.id AS id, s.code AS 条码, b.class AS 类别, b.p_name AS 名称,"
-               + "s.sale_price AS 应售单价, s.p_amount AS 数量, s.price AS 实际总价,"
-               + "s.sale_date AS 售出时间, s.other AS 备注 "
-               + "FROM tbl_sale AS s, tbl_buy AS b "
-               + "WHERE s.code=b.code and s.sale_date between ? and ?"; 
+            string sql = "select count(*) "
+                + " FROM tbl_user "
+                + " where class='1' and username=? and password_=?";
             OleDbParameter[] parameters = new OleDbParameter[2];
-            parameters[0] = new OleDbParameter("@1", OleDbType.Date);
-            parameters[0].Value = key1;
-            parameters[1] = new OleDbParameter("@2", OleDbType.Date);
+            parameters[0] = new OleDbParameter("@username", OleDbType.VarChar, 50);
+            parameters[0].Value = "admin";
+            parameters[1] = new OleDbParameter("@tpassword_", OleDbType.VarChar, 50);
             parameters[1].Value = key2;
-            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
-            return ds.Tables["ds"];
+            int ds = AccessDBUtil.ExecuteScalar(sql, parameters);
+            return ds;
         }
 
-        public static DataTable outBuy(string key1, string key2)
+        public static int update_password(string key)
         {
-            string sql = "select id,code as 条码,class as 类别,p_name as 名称,p_amount as 数量,sale_price as 标价,price as 进价,other as 备注,buy_date as 进货时间 "
-                +" from tbl_buy"
-                + " where buy_date between ? and ?";
-            OleDbParameter[] parameters = new OleDbParameter[2];
-            parameters[0] = new OleDbParameter("@1", OleDbType.Date);
-            parameters[0].Value = key1;
-            parameters[1] = new OleDbParameter("@2", OleDbType.Date);
-            parameters[1].Value = key2;
-            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
-            return ds.Tables["ds"];
+            string sql = "update tbl_user set password_= ? where username='admin'";
+            OleDbParameter[] parameters = new OleDbParameter[1];
+            parameters[0] = new OleDbParameter("@password_", OleDbType.VarChar, 50);
+            parameters[0].Value = key;
+            return AccessDBUtil.ExecuteNonQuery(sql, parameters);
+
+
         }
+        #endregion
+
+      
 	}
 }

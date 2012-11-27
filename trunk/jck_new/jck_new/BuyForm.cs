@@ -20,7 +20,7 @@ namespace jck_new
         public BuyForm()
         {
             InitializeComponent();
-            DataSet ds = ProductDao.allCalss();
+            DataSet ds = ProductDao.getAllLb();
             this.num_amount.Value = 1;
 
             for (int i=0; i < ds.Tables["ds"].Rows.Count; i++)

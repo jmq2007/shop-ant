@@ -184,6 +184,16 @@ namespace jck_new
             p.Price_sale = Double.Parse(this.txt_saleprice.Text.Trim());
             p.BuyDate = DateTime.Now;
             p.Other = this.txt_other.Text.Trim();
+            if (ProductDao.getKcByCode(p.Code) < 1)
+            {
+                MessageBox.Show("该商品已经售完，请补货！", "提示");
+                return;
+            }
+            if (ProductDao.getKcByCode(p.Code) < p.Amount)
+            {
+                MessageBox.Show("没有那么多货了，请补货！", "提示");
+                return;
+            }
              MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
              DialogResult dr = MessageBox.Show("确定以" + p.Price + "元卖出" + p.Name + "?", "提示", messButton);
             if (dr == DialogResult.OK)

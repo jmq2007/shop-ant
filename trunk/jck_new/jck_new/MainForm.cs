@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
+using SplashScreenControl;
 
 namespace jck_new
 {
@@ -16,13 +17,16 @@ namespace jck_new
 
         private MainToolWindow mainToolWin = new MainToolWindow();
         private SaleForm saleForm = new SaleForm();
-        private BuyForm buyForm = new BuyForm();
-        private TjForm tjForm = new TjForm();
-        private KcForm kcForm = new KcForm();
-        private HelpForm helpForm = new HelpForm();
-        private LbForm lbForm = new LbForm();
-        private BfForm bfForm = new BfForm();
-        private OutForm outForm = new OutForm();
+        public BuyForm buyForm = new BuyForm();//
+        public TjForm tjForm = new TjForm();
+        public KcForm kcForm = new KcForm();//
+        public HelpForm helpForm = new HelpForm();
+        public LbForm lbForm = new LbForm();
+        public BfForm bfForm = new BfForm();//
+        public OutForm outForm = new OutForm();//
+        public LoginForm loginForm = new LoginForm();
+        public LogoffForm logoffForm = new LogoffForm();
+        public bool isLogin=false;
 
         #endregion
         public MainForm()
@@ -31,10 +35,33 @@ namespace jck_new
 
             mainToolWin.Show(this.dockPanel1, DockState.DockLeft);
             saleForm.Show(this.dockPanel1);
-            //buyForm.Show(this.dockPanel1);
-
-
         }
+
+        #region 展示页
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            //this is where to call SplashScreen.EndDisplay
+            //SplashScreen.SetTitleString("OnShown Override.");
+            SplashScreen.SetCommentaryString("..进入系统.");
+            System.Threading.Thread.Sleep(500);
+            SplashScreen.EndDisplay();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            //simulate delay during onload
+            System.Threading.Thread.Sleep(500);
+
+            SplashScreen.SetCommentaryString("..数据装载中.");
+            System.Threading.Thread.Sleep(500);
+        }
+        #endregion
+
+        #region 菜单按键
 
         private void maintool_btn_Click(object sender, EventArgs e)
         {
@@ -52,6 +79,11 @@ namespace jck_new
 
         private void buy_btn_Click(object sender, EventArgs e)
         {
+            if (!isLogin)
+            {
+                MessageBox.Show("请先以管理员身份登录", "提示");
+                return;
+            }
             if (buyForm == null || buyForm.IsDisposed)
                 buyForm = new BuyForm();
             buyForm.Show(this.dockPanel1);
@@ -59,6 +91,12 @@ namespace jck_new
 
         private void kc_btn_Click(object sender, EventArgs e)
         {
+            if (!isLogin)
+            {
+                MessageBox.Show("请先以管理员身份登录", "提示");
+                return;
+            }
+
             if (kcForm == null || kcForm.IsDisposed)
                 kcForm = new KcForm();
             kcForm.Show(this.dockPanel1);
@@ -80,6 +118,7 @@ namespace jck_new
 
         private void lb_btn_Click(object sender, EventArgs e)
         {
+
             if (lbForm == null || lbForm.IsDisposed)
                 lbForm = new LbForm();
             lbForm.Show(this.dockPanel1);
@@ -87,6 +126,11 @@ namespace jck_new
 
         private void bf_btn_Click(object sender, EventArgs e)
         {
+            if (!isLogin)
+            {
+                MessageBox.Show("请先以管理员身份登录", "提示");
+                return;
+            }
             if (bfForm == null || bfForm.IsDisposed)
                 bfForm = new BfForm();
             bfForm.Show(this.dockPanel1);
@@ -94,9 +138,32 @@ namespace jck_new
 
         private void out_btn_Click(object sender, EventArgs e)
         {
+            if (!isLogin)
+            {
+                MessageBox.Show("请先以管理员身份登录", "提示");
+                return;
+            }
             if (outForm == null || outForm.IsDisposed)
                 outForm = new OutForm();
             outForm.Show(this.dockPanel1);
+        }
+        #endregion
+
+        private void logon_btn_Click(object sender, EventArgs e)
+        {
+            if (!isLogin)
+            {
+                loginForm._form = this;
+                loginForm.Owner = this;
+                loginForm.ShowDialog();
+            }
+            else
+            {
+                logoffForm._form = this;
+                logoffForm.Owner = this;
+                logoffForm.ShowDialog();
+            }
+
         }
     }
 }

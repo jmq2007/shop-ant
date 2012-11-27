@@ -29,7 +29,7 @@ namespace jck_new
             this.txt_other.Text = product.Other;
             this.dateTimePicker1.Value = product.BuyDate;
 
-            DataSet ds = ProductDao.allCalss();
+            DataSet ds = ProductDao.getAllLb();
             int j = 0;
             for (int i = 0; i < ds.Tables["ds"].Rows.Count; i++)
             {

@@ -14,6 +14,7 @@ namespace Common
         private PageQueryDao()
         {
         }
+        #region 进货分页
         public static Page getProducts_buy(int curPageIndex)
         {
             return getProducts_buy(curPageIndex, null);
@@ -61,8 +62,9 @@ namespace Common
             product.BuyDate = DateTime.Parse(row["buy_date"].ToString());
             return product;
         }
+        #endregion
 
-
+        #region 销售分页
         public static Page getProducts_sale(int curPageIndex)
         {
             return getProducts_sale(curPageIndex, null);
@@ -114,8 +116,9 @@ namespace Common
             product.BuyDate = DateTime.Parse(row["sale_date"].ToString());
             return product;
         }
+        #endregion
 
-        ////////////////////////////////////////////////
+        #region 库存分页
         public static Page getProducts_kc(int curPageIndex)
         {
             return getProducts_kc(curPageIndex, null);
@@ -123,7 +126,7 @@ namespace Common
         public static Page getProducts_kc(int curPageIndex, Product_kc condition)
         {
             string sqlQuery = "SELECT tbl_buy.code AS code, (select class from tbl_buy where code=tmp_tblrk.code) AS class, (select p_name from tbl_buy where code=tmp_tblrk.code) AS p_name, (select price from tbl_buy where code=tmp_tblrk.code) AS price, (select price from tbl_buy where code=tmp_tblrk.code)*( 入库-IIf(IsNull(出库),0,出库) ) AS price_sale, (select buy_date from tbl_buy where code=tmp_tblrk.code) AS buy_date, (select other from tbl_buy where code=tmp_tblrk.code) AS other,IIf(IsNull(出库),0,出库) as amount_s, 入库-IIf(IsNull(出库),0,出库) AS kc "
-+ "FROM (SELECT code,class,p_name,buy_date, sum(p_amount) AS 入库 FROM tbl_buy GROUP BY code,class,p_name,buy_date)  AS tmp_tblrk LEFT JOIN (SELECT code, sum(p_amount) AS 出库 FROM tbl_sale GROUP BY code)  AS tmp_tblck ON tmp_tblrk.code = tmp_tblck.code";
+                + "FROM (SELECT code,class,p_name,buy_date, sum(p_amount) AS 入库 FROM tbl_buy GROUP BY code,class,p_name,buy_date)  AS tmp_tblrk LEFT JOIN (SELECT code, sum(p_amount) AS 出库 FROM tbl_sale GROUP BY code)  AS tmp_tblck ON tmp_tblrk.code = tmp_tblck.code";
             string sqlCount = "SELECT count(*) FROM (SELECT code,p_name,class, sum(p_amount) AS 入库 FROM tbl_buy GROUP BY code,p_name,class)  AS tmp_tblrk LEFT JOIN (SELECT code, sum(p_amount) AS 出库 FROM tbl_sale  GROUP BY code)  AS tmp_tblck ON tmp_tblrk.code = tmp_tblck.code ";
             string sqlOrder = " order by tmp_tblrk.buy_date desc";
             if (condition != null)
@@ -178,6 +181,6 @@ namespace Common
             product.BuyDate = DateTime.Parse(row["buy_date"].ToString());
             return product;
         }
-
+        #endregion
     }
 }

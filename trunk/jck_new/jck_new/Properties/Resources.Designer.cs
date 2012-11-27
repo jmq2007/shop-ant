@@ -60,9 +60,128 @@ namespace jck_new.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap _213 {
+        internal static System.Drawing.Bitmap onebit_01 {
             get {
-                object obj = ResourceManager.GetObject("213", resourceCulture);
+                object obj = ResourceManager.GetObject("onebit_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_02 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_03 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_04 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_04", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_05 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_05", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_10 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_12 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_13 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_13", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_14 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_14", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_18 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_20 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_23 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_23", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_24 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_43 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_43", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap onebit_44 {
+            get {
+                object obj = ResourceManager.GetObject("onebit_44", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap qq {
+            get {
+                object obj = ResourceManager.GetObject("qq", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap splashbg {
+            get {
+                object obj = ResourceManager.GetObject("splashbg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap splashbg2 {
+            get {
+                object obj = ResourceManager.GetObject("splashbg2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
