@@ -33,7 +33,7 @@
             // 
             // qq_btn
             // 
-            this.qq_btn.Image = global::jck_new.Properties.Resources._213;
+            this.qq_btn.Image = global::jck_new.Properties.Resources.qq;
             this.qq_btn.Location = new System.Drawing.Point(57, 38);
             this.qq_btn.Name = "qq_btn";
             this.qq_btn.Size = new System.Drawing.Size(155, 152);
