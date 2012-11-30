@@ -44,12 +44,14 @@
             this.btn_canel = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txt_phone = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.num_amount)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_other
             // 
-            this.txt_other.Location = new System.Drawing.Point(54, 175);
+            this.txt_other.Location = new System.Drawing.Point(53, 208);
             this.txt_other.Multiline = true;
             this.txt_other.Name = "txt_other";
             this.txt_other.Size = new System.Drawing.Size(150, 63);
@@ -72,6 +74,7 @@
             // 
             // txt_saleprice
             // 
+            this.txt_saleprice.Enabled = false;
             this.txt_saleprice.Location = new System.Drawing.Point(53, 66);
             this.txt_saleprice.Name = "txt_saleprice";
             this.txt_saleprice.Size = new System.Drawing.Size(150, 21);
@@ -95,7 +98,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 178);
+            this.label6.Location = new System.Drawing.Point(12, 211);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 12);
             this.label6.TabIndex = 43;
@@ -148,7 +151,7 @@
             // 
             // but_save
             // 
-            this.but_save.Location = new System.Drawing.Point(48, 244);
+            this.but_save.Location = new System.Drawing.Point(47, 277);
             this.but_save.Name = "but_save";
             this.but_save.Size = new System.Drawing.Size(75, 23);
             this.but_save.TabIndex = 50;
@@ -158,7 +161,7 @@
             // 
             // btn_canel
             // 
-            this.btn_canel.Location = new System.Drawing.Point(129, 244);
+            this.btn_canel.Location = new System.Drawing.Point(128, 277);
             this.btn_canel.Name = "btn_canel";
             this.btn_canel.Size = new System.Drawing.Size(75, 23);
             this.btn_canel.TabIndex = 51;
@@ -184,11 +187,29 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(150, 21);
             this.dateTimePicker1.TabIndex = 53;
             // 
+            // txt_phone
+            // 
+            this.txt_phone.Location = new System.Drawing.Point(53, 175);
+            this.txt_phone.Name = "txt_phone";
+            this.txt_phone.Size = new System.Drawing.Size(150, 21);
+            this.txt_phone.TabIndex = 55;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 178);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 12);
+            this.label8.TabIndex = 54;
+            this.label8.Text = "手机:";
+            // 
             // SaleEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(221, 280);
+            this.ClientSize = new System.Drawing.Size(221, 333);
+            this.Controls.Add(this.txt_phone);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_canel);
@@ -232,5 +253,7 @@
         private System.Windows.Forms.Button btn_canel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txt_phone;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -20,6 +20,18 @@ namespace jck_new
         public BuyForm()
         {
             InitializeComponent();
+            DataTable dt = ProductDao.codeAuto().Tables["ds"];
+            string[] str_txt = new string[dt.Rows.Count];
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                str_txt[i] = dt.Rows[i]["code"].ToString();
+            }
+            this.txt_code.AutoCompleteCustomSource.AddRange(str_txt);
+            this.txt_code.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.txt_code.AutoCompleteMode = AutoCompleteMode.Suggest;
+
+
             DataSet ds = ProductDao.getAllLb();
             this.num_amount.Value = 1;
 

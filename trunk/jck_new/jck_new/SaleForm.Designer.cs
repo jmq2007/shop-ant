@@ -61,13 +61,15 @@
             this.MenuItem_edit = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_del = new System.Windows.Forms.ToolStripMenuItem();
             this.search_btn = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_phone = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.num_amount)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_other
             // 
-            this.txt_other.Location = new System.Drawing.Point(257, 44);
+            this.txt_other.Location = new System.Drawing.Point(404, 44);
             this.txt_other.Name = "txt_other";
             this.txt_other.Size = new System.Drawing.Size(150, 21);
             this.txt_other.TabIndex = 6;
@@ -89,6 +91,7 @@
             // 
             // txt_saleprice
             // 
+            this.txt_saleprice.Enabled = false;
             this.txt_saleprice.Location = new System.Drawing.Point(257, 10);
             this.txt_saleprice.Name = "txt_saleprice";
             this.txt_saleprice.Size = new System.Drawing.Size(100, 21);
@@ -110,7 +113,7 @@
             // 
             // add_btn
             // 
-            this.add_btn.Location = new System.Drawing.Point(429, 42);
+            this.add_btn.Location = new System.Drawing.Point(581, 42);
             this.add_btn.Name = "add_btn";
             this.add_btn.Size = new System.Drawing.Size(75, 23);
             this.add_btn.TabIndex = 7;
@@ -121,7 +124,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(216, 47);
+            this.label6.Location = new System.Drawing.Point(363, 50);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 12);
             this.label6.TabIndex = 30;
@@ -293,19 +296,19 @@
             this.MenuItem_edit,
             this.MenuItem_del});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
             // 
             // MenuItem_edit
             // 
             this.MenuItem_edit.Name = "MenuItem_edit";
-            this.MenuItem_edit.Size = new System.Drawing.Size(152, 22);
+            this.MenuItem_edit.Size = new System.Drawing.Size(100, 22);
             this.MenuItem_edit.Text = "编辑";
             this.MenuItem_edit.Click += new System.EventHandler(this.MenuItem_edit_Click);
             // 
             // MenuItem_del
             // 
             this.MenuItem_del.Name = "MenuItem_del";
-            this.MenuItem_del.Size = new System.Drawing.Size(152, 22);
+            this.MenuItem_del.Size = new System.Drawing.Size(100, 22);
             this.MenuItem_del.Text = "删除";
             this.MenuItem_del.Click += new System.EventHandler(this.MenuItem_del_Click);
             // 
@@ -319,15 +322,33 @@
             this.search_btn.UseVisualStyleBackColor = true;
             this.search_btn.Click += new System.EventHandler(this.search_btn_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(216, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 12);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "手机:";
+            // 
+            // txt_phone
+            // 
+            this.txt_phone.Location = new System.Drawing.Point(257, 44);
+            this.txt_phone.Name = "txt_phone";
+            this.txt_phone.Size = new System.Drawing.Size(100, 21);
+            this.txt_phone.TabIndex = 37;
+            // 
             // SaleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 312);
+            this.Controls.Add(this.txt_phone);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.search_btn);
-            this.Controls.Add(this.txt_other);
             this.Controls.Add(this.txt_price);
             this.Controls.Add(this.txt_name);
+            this.Controls.Add(this.txt_other);
             this.Controls.Add(this.txt_saleprice);
             this.Controls.Add(this.num_amount);
             this.Controls.Add(this.txt_code);
@@ -388,5 +409,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_edit;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_del;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txt_phone;
     }
 }

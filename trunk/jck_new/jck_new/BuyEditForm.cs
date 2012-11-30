@@ -18,7 +18,7 @@ namespace jck_new
         public BuyEditForm(int id, int id2)
         {
             
-                product = ProductDao.getById(id);
+            product = ProductDao.getById(id);
             InitializeComponent();
             lId = id2;
             this.txt_code.Text = product.Code;

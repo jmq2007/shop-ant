@@ -31,22 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dockPanel1 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.maintool = new System.Windows.Forms.ToolStrip();
-            this.maintool_btn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.sale_btn = new System.Windows.Forms.ToolStripButton();
-            this.buy_btn = new System.Windows.Forms.ToolStripButton();
-            this.kc_btn = new System.Windows.Forms.ToolStripButton();
-            this.tj_btn = new System.Windows.Forms.ToolStripButton();
-            this.lb_btn = new System.Windows.Forms.ToolStripButton();
-            this.out_btn = new System.Windows.Forms.ToolStripButton();
-            this.bf_btn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.logon_btn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.help_btn = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.maintool_btn = new System.Windows.Forms.ToolStripButton();
+            this.sale_btn = new System.Windows.Forms.ToolStripButton();
+            this.tj_btn = new System.Windows.Forms.ToolStripButton();
+            this.lb_btn = new System.Windows.Forms.ToolStripButton();
+            this.buy_btn = new System.Windows.Forms.ToolStripButton();
+            this.kc_btn = new System.Windows.Forms.ToolStripButton();
+            this.hy_btn = new System.Windows.Forms.ToolStripButton();
+            this.out_btn = new System.Windows.Forms.ToolStripButton();
+            this.bf_btn = new System.Windows.Forms.ToolStripButton();
+            this.logon_btn = new System.Windows.Forms.ToolStripButton();
+            this.help_btn = new System.Windows.Forms.ToolStripButton();
             this.maintool.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +74,7 @@
             this.toolStripSeparator4,
             this.buy_btn,
             this.kc_btn,
+            this.hy_btn,
             this.out_btn,
             this.bf_btn,
             this.toolStripSeparator2,
@@ -85,6 +87,42 @@
             this.maintool.TabIndex = 4;
             this.maintool.Text = "toolStrip1";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 39);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 39);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 380);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(904, 22);
+            this.statusStrip1.TabIndex = 7;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(44, 17);
+            this.toolStripStatusLabel1.Text = "未登录";
+            // 
             // maintool_btn
             // 
             this.maintool_btn.Image = global::jck_new.Properties.Resources.onebit_01;
@@ -94,11 +132,6 @@
             this.maintool_btn.Text = "搜索栏";
             this.maintool_btn.Click += new System.EventHandler(this.maintool_btn_Click);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
-            // 
             // sale_btn
             // 
             this.sale_btn.Image = global::jck_new.Properties.Resources.onebit_20;
@@ -107,24 +140,6 @@
             this.sale_btn.Size = new System.Drawing.Size(68, 36);
             this.sale_btn.Text = "销售";
             this.sale_btn.Click += new System.EventHandler(this.sale_btn_Click);
-            // 
-            // buy_btn
-            // 
-            this.buy_btn.Image = global::jck_new.Properties.Resources.onebit_44;
-            this.buy_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.buy_btn.Name = "buy_btn";
-            this.buy_btn.Size = new System.Drawing.Size(68, 36);
-            this.buy_btn.Text = "进货";
-            this.buy_btn.Click += new System.EventHandler(this.buy_btn_Click);
-            // 
-            // kc_btn
-            // 
-            this.kc_btn.Image = global::jck_new.Properties.Resources.onebit_14;
-            this.kc_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.kc_btn.Name = "kc_btn";
-            this.kc_btn.Size = new System.Drawing.Size(68, 36);
-            this.kc_btn.Text = "库存";
-            this.kc_btn.Click += new System.EventHandler(this.kc_btn_Click);
             // 
             // tj_btn
             // 
@@ -144,6 +159,33 @@
             this.lb_btn.Text = "类别";
             this.lb_btn.Click += new System.EventHandler(this.lb_btn_Click);
             // 
+            // buy_btn
+            // 
+            this.buy_btn.Image = global::jck_new.Properties.Resources.onebit_44;
+            this.buy_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buy_btn.Name = "buy_btn";
+            this.buy_btn.Size = new System.Drawing.Size(68, 36);
+            this.buy_btn.Text = "进货";
+            this.buy_btn.Click += new System.EventHandler(this.buy_btn_Click);
+            // 
+            // kc_btn
+            // 
+            this.kc_btn.Image = global::jck_new.Properties.Resources.onebit_14;
+            this.kc_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.kc_btn.Name = "kc_btn";
+            this.kc_btn.Size = new System.Drawing.Size(68, 36);
+            this.kc_btn.Text = "库存";
+            this.kc_btn.Click += new System.EventHandler(this.kc_btn_Click);
+            // 
+            // hy_btn
+            // 
+            this.hy_btn.Image = global::jck_new.Properties.Resources.onebit_18;
+            this.hy_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.hy_btn.Name = "hy_btn";
+            this.hy_btn.Size = new System.Drawing.Size(68, 36);
+            this.hy_btn.Text = "会员";
+            this.hy_btn.Click += new System.EventHandler(this.hy_btn_Click);
+            // 
             // out_btn
             // 
             this.out_btn.Image = global::jck_new.Properties.Resources.onebit_13;
@@ -162,24 +204,14 @@
             this.bf_btn.Text = "备份";
             this.bf_btn.Click += new System.EventHandler(this.bf_btn_Click);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
-            // 
             // logon_btn
             // 
-            this.logon_btn.Image = global::jck_new.Properties.Resources.onebit_18;
+            this.logon_btn.Image = global::jck_new.Properties.Resources.onebit_23;
             this.logon_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.logon_btn.Name = "logon_btn";
-            this.logon_btn.Size = new System.Drawing.Size(133, 36);
-            this.logon_btn.Text = "管理员登录\\退出";
+            this.logon_btn.Size = new System.Drawing.Size(68, 36);
+            this.logon_btn.Text = "登录";
             this.logon_btn.Click += new System.EventHandler(this.logon_btn_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 39);
             // 
             // help_btn
             // 
@@ -189,27 +221,6 @@
             this.help_btn.Size = new System.Drawing.Size(68, 36);
             this.help_btn.Text = "帮助";
             this.help_btn.Click += new System.EventHandler(this.help_btn_Click);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 380);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(904, 22);
-            this.statusStrip1.TabIndex = 7;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(44, 17);
-            this.toolStripStatusLabel1.Text = "未登录";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 39);
             // 
             // MainForm
             // 
@@ -253,6 +264,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripButton hy_btn;
     }
 }
 

@@ -98,6 +98,18 @@
     <Compile Include="HelpForm.Designer.cs">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HyEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HyEditForm.Designer.cs">
+      <DependentUpon>HyEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HyForm.Designer.cs">
+      <DependentUpon>HyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="KcForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +146,7 @@
     <Compile Include="MainToolWindow.Designer.cs">
       <DependentUpon>MainToolWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Member.cs" />
     <Compile Include="OutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +194,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HyEditForm.resx">
+      <DependentUpon>HyEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HyForm.resx">
+      <DependentUpon>HyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KcForm.resx">
       <DependentUpon>KcForm.cs</DependentUpon>

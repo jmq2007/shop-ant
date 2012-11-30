@@ -26,6 +26,7 @@ namespace jck_new
         public OutForm outForm = new OutForm();//
         public LoginForm loginForm = new LoginForm();
         public LogoffForm logoffForm = new LogoffForm();
+        public HyForm hyForm = new HyForm();
         public bool isLogin=false;
 
         #endregion
@@ -147,6 +148,18 @@ namespace jck_new
                 outForm = new OutForm();
             outForm.Show(this.dockPanel1);
         }
+
+        private void hy_btn_Click(object sender, EventArgs e)
+        {
+            if (!isLogin)
+            {
+                MessageBox.Show("请先以管理员身份登录", "提示");
+                return;
+            }
+            if (hyForm == null || hyForm.IsDisposed)
+                hyForm = new HyForm();
+            hyForm.Show(this.dockPanel1);
+        }
         #endregion
 
         private void logon_btn_Click(object sender, EventArgs e)
@@ -165,5 +178,7 @@ namespace jck_new
             }
 
         }
+
+        
     }
 }

@@ -73,7 +73,7 @@ namespace Common
         {
             string sqlQuery = "SELECT s.id AS id, s.code AS code, b.class AS class, b.p_name AS p_name,"
                 +"s.sale_price AS sale_price, s.p_amount AS p_amount, s.price AS price,"
-                +" s.sale_date AS sale_date, s.other AS other "
+                + " s.sale_date AS sale_date, s.other AS other ,s.phone AS phone "
                 + "FROM tbl_sale AS s, tbl_buy AS b "
                 + "WHERE s.code=b.code";
             string sqlCount = "select count(*) from tbl_sale";
@@ -114,6 +114,7 @@ namespace Common
             product.Price = Double.Parse(row["price"].ToString());
             product.Other = row["other"].ToString();
             product.BuyDate = DateTime.Parse(row["sale_date"].ToString());
+            product.Phone = row["phone"].ToString();
             return product;
         }
         #endregion
@@ -180,6 +181,70 @@ namespace Common
             product.Other = row["other"].ToString();
             product.BuyDate = DateTime.Parse(row["buy_date"].ToString());
             return product;
+        }
+        #endregion
+
+        #region 会员分页
+        public static Page getMember(int curPageIndex)
+        {
+            return getMember(curPageIndex, null);
+        }
+        public static Page getMember(int curPageIndex, Member condition)
+        {
+            string sqlQuery = "SELECT tmp_tblme.id as id,tmp_tblme.username as username,tmp_tblme.phone as phone,tmp_tblme.class as class,tmp_tblme.other as other,tmp_tblme.c_date as c_date,IIf(IsNull(tmp_tblje.金额),0,tmp_tblje.金额) as price from (SELECT id,phone,username,class,other,c_date  FROM tbl_member) AS tmp_tblme LEFT JOIN (SELECT phone,sum(price) AS 金额 FROM tbl_sale GROUP BY phone)  AS tmp_tblje ON tmp_tblme.phone = tmp_tblje.phone ";
+            string sqlCount = "select count(*) from (SELECT id, phone, username, class, other, c_date FROM tbl_member) as tmp_tblme ";
+            string sqlOrder = " order by tmp_tblme.c_date desc";
+            if (condition != null)
+            {
+                string sqlCondition = "";
+                if (condition.Phone != null)
+                {
+                    sqlCondition = " where  tmp_tblme.phone='" + condition.Phone.ToString() + "'";
+                }
+                else if (condition.Username != null)
+                {
+                    sqlCondition = " where  tmp_tblme.username like '%" + condition.Username.ToString() + "%'";
+                }
+                else if (condition.UserClass != null)
+                {
+                    sqlCondition = " where  tmp_tblme.class='" + condition.UserClass.ToString() + "'";
+                }
+               // else if (condition.Price != null)
+              //  {
+              //      sqlCondition = " where  tmp_tblme.price> " + condition.Price;
+               // }
+                //sqlQuery +=sqlCondition+sqlOrder;
+                sqlQuery += sqlCondition;
+                sqlCount += sqlCondition;
+            }
+            sqlQuery += sqlOrder;
+
+            int totalRecord = AccessDBUtil.ExecuteScalar(sqlCount);
+            Page page = new Page(totalRecord, AccessPageUtil.PAGE_SIZE);
+            if (curPageIndex >= page.TotalPage) curPageIndex = page.TotalPage - 1;
+            if (curPageIndex < 0) curPageIndex = 0;
+            page.CurPageIndex = curPageIndex;
+
+            DataSet data = AccessPageUtil.query(sqlQuery, curPageIndex, totalRecord);
+            List<Member> ls = new List<Member>();
+            foreach (DataRow row in data.Tables["ds"].Rows)
+            {
+                ls.Add(Row2Member(row));
+            }
+            page.ValueList = ls;
+            return page;
+        }
+        private static Member Row2Member(DataRow row)
+        {
+            Member member = new Member();
+            member.Id = Int32.Parse(row["id"].ToString());
+            member.Username = row["username"].ToString();
+            member.UserClass = row["class"].ToString();
+            member.Phone = row["phone"].ToString();
+            member.Price = Double.Parse(row["price"].ToString());
+            member.Other = row["other"].ToString();
+            member.CDate = DateTime.Parse(row["c_date"].ToString());
+            return member;
         }
         #endregion
     }

@@ -16,6 +16,7 @@ namespace jck_new
         private int amount;//数量
 		private DateTime buyDate;//出售时间
         private string other;//备注
+        private string phone;//手机
 
         public Product_sale()
 		{
@@ -63,6 +64,12 @@ namespace jck_new
         {
             get { return other; }
             set { other = value; }
+        }
+
+        public string Phone
+        {
+            get { return phone; }
+            set { phone = value; }
         }
 	
     }

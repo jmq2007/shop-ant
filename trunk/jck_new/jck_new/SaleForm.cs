@@ -19,6 +19,24 @@ namespace jck_new
         public SaleForm()
         {
             InitializeComponent();
+            DataTable dt = ProductDao.phoneAuto().Tables["ds"];
+            string[] str_txt = new string[dt.Rows.Count];
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                str_txt[i] = dt.Rows[i]["phone"].ToString();
+            }
+            this.txt_phone.AutoCompleteCustomSource.AddRange(str_txt);
+            this.txt_phone.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.txt_phone.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //this.txt_phone.DataBindings
+            //comb_phone.DataSource = ProductDao.phoneAuto().Tables["ds"];
+           // this.comb_phone.DisplayMember = "phone";
+           // this.comb_phone.ValueMember = "phone";
+           // this.comb_phone.AutoCompleteSource = AutoCompleteSource.ListItems;
+           // this.comb_phone.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
+            //comb_phone.AutoCompleteCustomSource = 
             curPageIndex = 0;
             Page page = PageQueryDao.getProducts_sale(curPageIndex);
             List<Product_sale> ls = (List<Product_sale>)page.ValueList;
@@ -169,7 +187,10 @@ namespace jck_new
             {
                 strErrorMsg.Append("总价必须为数字\n");
             }
-
+            if (!Validator.checkInteger(this.txt_phone.Text))
+            {
+                strErrorMsg.Append("手机必须为数字\n");
+            }
             if (strErrorMsg.Length > 0)
             {
                 MessageBox.Show(strErrorMsg.ToString(), "出错提示");
@@ -184,6 +205,7 @@ namespace jck_new
             p.Price_sale = Double.Parse(this.txt_saleprice.Text.Trim());
             p.BuyDate = DateTime.Now;
             p.Other = this.txt_other.Text.Trim();
+            p.Phone = this.txt_phone.Text.Trim();
             if (ProductDao.getKcByCode(p.Code) < 1)
             {
                 MessageBox.Show("该商品已经售完，请补货！", "提示");
