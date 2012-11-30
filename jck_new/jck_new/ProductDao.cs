@@ -121,8 +121,8 @@ namespace Common
         #region 销售表 增删改查
         public static int insert_sale(Product_sale p)
         {
-            string sql = "insert into tbl_sale(code,sale_price,p_amount,price,sale_date,other)values(?,?,?,?,?,?);";
-            OleDbParameter[] parameters = new OleDbParameter[6];
+            string sql = "insert into tbl_sale(code,sale_price,p_amount,price,sale_date,other,phone)values(?,?,?,?,?,?,?);";
+            OleDbParameter[] parameters = new OleDbParameter[7];
             parameters[0] = new OleDbParameter("@code", OleDbType.VarChar, 50);
             parameters[0].Value = p.Code;
             //parameters[1] = new OleDbParameter("@p_name", OleDbType.VarChar, 50);
@@ -139,6 +139,8 @@ namespace Common
             parameters[4].Value = p.BuyDate;
             parameters[5] = new OleDbParameter("@other", OleDbType.VarChar, 50);
             parameters[5].Value = p.Other;
+            parameters[6] = new OleDbParameter("@phone", OleDbType.VarChar, 50);
+            parameters[6].Value = p.Phone;
 
             return AccessDBUtil.ExecuteInsert(sql, parameters);
         }
@@ -153,8 +155,8 @@ namespace Common
         }
         public static int update_sale(Product_sale p)
         {
-            string sql = "update tbl_sale set code=?,sale_price=?,p_amount=?,price=?,sale_date=?,other=? where id=?";
-            OleDbParameter[] parameters = new OleDbParameter[7];
+            string sql = "update tbl_sale set code=?,sale_price=?,p_amount=?,price=?,sale_date=?,other=?,phone=? where id=?";
+            OleDbParameter[] parameters = new OleDbParameter[8];
             parameters[0] = new OleDbParameter("@code", OleDbType.VarChar, 50);
             parameters[0].Value = p.Code;
             //parameters[1] = new OleDbParameter("@p_name", OleDbType.VarChar, 50);
@@ -171,8 +173,10 @@ namespace Common
             parameters[4].Value = p.BuyDate;
             parameters[5] = new OleDbParameter("@other", OleDbType.VarChar, 50);
             parameters[5].Value = p.Other;
-            parameters[6] = new OleDbParameter("@id", OleDbType.Integer);
-            parameters[6].Value = p.Id;
+            parameters[6] = new OleDbParameter("@phone", OleDbType.VarChar, 50);
+            parameters[6].Value = p.Phone;
+            parameters[7] = new OleDbParameter("@id", OleDbType.Integer);
+            parameters[7].Value = p.Id;
 
             return AccessDBUtil.ExecuteNonQuery(sql, parameters);
 
@@ -182,7 +186,7 @@ namespace Common
         {
             string sql = "SELECT s.id AS id, s.code AS code, b.class AS class, b.p_name AS p_name,"
                 + "s.sale_price AS sale_price, s.p_amount AS p_amount, s.price AS price,"
-                + " s.sale_date AS sale_date, s.other AS other "
+                + " s.sale_date AS sale_date, s.other AS other ,s.phone AS phone "
                 + "FROM tbl_sale AS s, tbl_buy AS b "
                 + "WHERE s.code=b.code and s.id = ?";
             OleDbParameter[] parameters = new OleDbParameter[1];
@@ -204,13 +208,14 @@ namespace Common
             product.Price_sale = Double.Parse(row["sale_price"].ToString());
             product.BuyDate = DateTime.Parse(row["sale_date"].ToString());
             product.Other = row["other"].ToString();
+            product.Phone = row["phone"].ToString();
             return product;
         }
         public static Product_sale getByCode_sale(string code)
         {
             string sql = "SELECT s.id AS id, s.code AS code, b.class AS class, b.p_name AS p_name,"
                 + "s.sale_price AS sale_price, s.p_amount AS p_amount, s.price AS price,"
-                + " s.sale_date AS sale_date, s.other AS other "
+                + " s.sale_date AS sale_date, s.other AS other ,s.phone AS phone "
                 + "FROM tbl_sale AS s, tbl_buy AS b "
                 + "WHERE s.code=b.code and s.code=?";
             OleDbParameter[] parameters = new OleDbParameter[1];
@@ -428,6 +433,103 @@ namespace Common
         }
         #endregion
 
-      
+        #region 会员表 增删改查
+        public static int insert_member(Member p)
+        {
+            string sql = "insert into tbl_member(username,phone,class,other,c_date)values(?,?,?,?,?);";
+            OleDbParameter[] parameters = new OleDbParameter[5];
+            parameters[0] = new OleDbParameter("@username", OleDbType.VarChar, 50);
+            parameters[0].Value = p.Username;
+            parameters[1] = new OleDbParameter("@phone", OleDbType.VarChar, 50);
+            parameters[1].Value = p.Phone;
+            parameters[2] = new OleDbParameter("@class", OleDbType.VarChar, 50);
+            parameters[2].Value = p.UserClass;
+            parameters[3] = new OleDbParameter("@other", OleDbType.VarChar, 50);
+            parameters[3].Value = p.Other;
+            parameters[4] = new OleDbParameter("@c_date", OleDbType.Date);
+            parameters[4].Value = p.CDate;
+            return AccessDBUtil.ExecuteInsert(sql, parameters);
+        }
+
+        public static int deleteById_member(int id)
+        {
+            string sql = "delete from tbl_member where id=?";
+            OleDbParameter[] parameters = new OleDbParameter[1];
+            parameters[0] = new OleDbParameter("@id", OleDbType.Integer);
+            parameters[0].Value = id;
+            return AccessDBUtil.ExecuteNonQuery(sql, parameters);
+        }
+        public static int update_member(Member p)
+        {
+            string sql = "update tbl_member set username=?,phone=?,class=?,other=?,c_date=? where id=?";
+            OleDbParameter[] parameters = new OleDbParameter[6];
+            parameters[0] = new OleDbParameter("@username", OleDbType.VarChar, 50);
+            parameters[0].Value = p.Username;
+            parameters[1] = new OleDbParameter("@phone", OleDbType.VarChar, 50);
+            parameters[1].Value = p.Phone;
+            parameters[2] = new OleDbParameter("@class", OleDbType.VarChar, 50);
+            parameters[2].Value = p.UserClass;
+            parameters[3] = new OleDbParameter("@other", OleDbType.VarChar, 50);
+            parameters[3].Value = p.Other;
+            parameters[4] = new OleDbParameter("@c_date", OleDbType.Date);
+            parameters[4].Value = p.CDate;
+            parameters[5] = new OleDbParameter("@id", OleDbType.Integer);
+            parameters[5].Value = p.Id;
+
+            return AccessDBUtil.ExecuteNonQuery(sql, parameters);
+
+
+        }
+        public static Member getById_member(int id)
+        {
+            string sql = "SELECT tmp_tblme.id as id,tmp_tblme.username as username,tmp_tblme.phone as phone,tmp_tblme.class as class,tmp_tblme.other as other,tmp_tblme.c_date as c_date,IIf(IsNull(tmp_tblje.金额),0,tmp_tblje.金额) as price from (SELECT id,phone,username,class,other,c_date  FROM tbl_member) AS tmp_tblme LEFT JOIN (SELECT phone,sum(price) AS 金额 FROM tbl_sale GROUP BY phone)  AS tmp_tblje ON tmp_tblme.phone = tmp_tblje.phone "
+                + " WHERE tmp_tblme.id = ?";
+            OleDbParameter[] parameters = new OleDbParameter[1];
+            parameters[0] = new OleDbParameter("@id", OleDbType.Integer);
+            parameters[0].Value = id;
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
+
+            return Row2Product_member(ds.Tables["ds"].Rows[0]);
+        }
+        private static Member Row2Product_member(DataRow row)
+        {
+            Member member = new Member();
+            member.Id = Int32.Parse(row["id"].ToString());
+            member.CDate = DateTime.Parse(row["c_date"].ToString());
+            member.UserClass = row["class"].ToString();
+            member.Username = row["username"].ToString();
+            member.Other = row["other"].ToString();
+            member.Phone = row["phone"].ToString();
+            return member;
+        }
+       
+        #endregion
+
+        public static DataSet phoneAuto()
+        {
+            string sql = "select username,phone"
+                + " FROM tbl_member";
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql);
+            return ds;
+        }
+
+        public static DataSet codeAuto()
+        {
+            string sql = "select id,code "
+                + " FROM tbl_buy";
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql);
+            return ds;
+        }
+        public static int getMemberByPhone(string key)
+        {
+            string sql = "select count(*) "
+                + " FROM tbl_member "
+                + " where phone=?";
+            OleDbParameter[] parameters = new OleDbParameter[1];
+            parameters[0] = new OleDbParameter("@phone", OleDbType.VarChar, 50);
+            parameters[0].Value = key;
+            int ds = AccessDBUtil.ExecuteScalar(sql, parameters);
+            return ds;
+        }
 	}
 }

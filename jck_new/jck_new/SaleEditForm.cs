@@ -18,7 +18,20 @@ namespace jck_new
         public SaleEditForm(int id,int id2)
         {
             product = ProductDao.getById_sale(id);
+
             InitializeComponent();
+            DataTable dt = ProductDao.phoneAuto().Tables["ds"];
+            string[] str_txt = new string[dt.Rows.Count];
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                str_txt[i] = dt.Rows[i]["phone"].ToString();
+            }
+            this.txt_phone.AutoCompleteCustomSource.AddRange(str_txt);
+            this.txt_phone.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.txt_phone.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
+           
             lId = id2;
             this.txt_code.Text = product.Code;
             this.txt_name.Text = product.Name;
@@ -27,7 +40,7 @@ namespace jck_new
             this.txt_price.Text = product.Price.ToString();
             this.txt_other.Text = product.Other;
             this.dateTimePicker1.Value = product.BuyDate;
-            
+            this.txt_phone.Text = product.Phone;
         }
         
         private void but_save_Click(object sender, EventArgs e)
@@ -53,7 +66,10 @@ namespace jck_new
             {
                 strErrorMsg.Append("总价必须为数字\n");
             }
-
+            if (!Validator.checkInteger(this.txt_phone.Text))
+            {
+                strErrorMsg.Append("手机必须为数字\n");
+            }
             if (strErrorMsg.Length > 0)
             {
                 MessageBox.Show(strErrorMsg.ToString(), "出错提示");
@@ -70,6 +86,7 @@ namespace jck_new
             newProduct.NameClass = product.NameClass;
             newProduct.BuyDate = this.dateTimePicker1.Value;
             newProduct.Other = this.txt_other.Text;
+            newProduct.Phone = this.txt_phone.Text.Trim();
             ProductDao.update_sale(newProduct);
             MessageBox.Show("保存成功", "提示");
 
