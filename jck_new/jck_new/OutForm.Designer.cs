@@ -34,9 +34,11 @@
             this.btn_out1 = new System.Windows.Forms.Button();
             this.btn_out2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_out3 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_hy = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -97,15 +99,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "按时间段";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(13, 119);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(656, 127);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "按其他条件";
-            // 
             // btn_out3
             // 
             this.btn_out3.Location = new System.Drawing.Point(367, 56);
@@ -115,6 +108,26 @@
             this.btn_out3.Text = "导出利润记录";
             this.btn_out3.UseVisualStyleBackColor = true;
             this.btn_out3.Click += new System.EventHandler(this.btn_out3_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btn_hy);
+            this.groupBox2.Location = new System.Drawing.Point(13, 119);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(656, 127);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "按其他条件";
+            // 
+            // btn_hy
+            // 
+            this.btn_hy.Location = new System.Drawing.Point(55, 40);
+            this.btn_hy.Name = "btn_hy";
+            this.btn_hy.Size = new System.Drawing.Size(127, 23);
+            this.btn_hy.TabIndex = 7;
+            this.btn_hy.Text = "导出会员列表";
+            this.btn_hy.UseVisualStyleBackColor = true;
+            this.btn_hy.Click += new System.EventHandler(this.btn_hy_Click);
             // 
             // OutForm
             // 
@@ -128,6 +141,7 @@
             this.Text = "导出数据到excel";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -142,5 +156,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_out3;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btn_hy;
     }
 }

@@ -18,7 +18,7 @@ namespace jck_new
 
         private void qq_btn_Click(object sender, EventArgs e)
         {
-            string qq="703309819";
+            string qq="254028614";
             System.Diagnostics.Process.Start("tencent://message/?uin=" + qq + "&Site=hexun.com/banvyouhun&Menu=yes");
         }
     }

@@ -238,12 +238,18 @@ namespace Common
         #region 首页查询
         public static DataSet searchByKey(string key)
         {
-            string sql = "select id,code,class,p_name,p_amount,sale_price,price,buy_date,other from tbl_buy where code like ? or p_name like '%'+@p_name+'%'";
-            OleDbParameter[] parameters = new OleDbParameter[2];
+            string sql = "select code,p_name,sale_price from tbl_buy where code like ? or p_name like '%'+@p_name+'%' "
+                + " union SELECT tmp_tblme.username as code,tmp_tblme.phone as p_name,IIf(IsNull(tmp_tblje.金额),0,tmp_tblje.金额) as sale_price from (SELECT id,phone,username,class,other,c_date  FROM tbl_member) AS tmp_tblme LEFT JOIN (SELECT phone,sum(price) AS 金额 FROM tbl_sale GROUP BY phone)  AS tmp_tblje ON tmp_tblme.phone = tmp_tblje.phone "
+                + " where  tmp_tblme.phone like ? or tmp_tblme.username like  '%'+@tmp_tblme.username+'%' ";
+            OleDbParameter[] parameters = new OleDbParameter[4];
             parameters[0] = new OleDbParameter("@code", OleDbType.VarChar, 50);
             parameters[0].Value = key;
             parameters[1] = new OleDbParameter("@p_name", OleDbType.VarChar, 50);
             parameters[1].Value = key;
+            parameters[2] = new OleDbParameter("@tmp_tblme.phone", OleDbType.VarChar, 50);
+            parameters[2].Value = key;
+            parameters[3] = new OleDbParameter("@tmp_tblme.username", OleDbType.VarChar, 50);
+            parameters[3].Value = key;
             DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
             return ds;
         }
@@ -309,11 +315,10 @@ namespace Common
 
         public static DataTable outSale(string key1, string key2)
         {
-            string sql = "SELECT s.id AS id, s.code AS 条码, b.class AS 类别, b.p_name AS 名称,"
-               + "s.sale_price AS 应售单价, s.p_amount AS 数量, s.price AS 实际总价,"
-               + "s.sale_date AS 售出时间, s.other AS 备注 "
-               + "FROM tbl_sale AS s, tbl_buy AS b "
-               + "WHERE s.code=b.code and s.sale_date between ? and ?";
+            string sql = "SELECT s.id AS id, s.code AS 条码, b.class AS 类别, b.p_name AS 名称, s.sale_price AS 应售单价, s.p_amount AS 数量, s.price AS 实际总价,"
+                +"s.sale_date AS 售出时间,s.phone AS 会员手机,m.username as 会员名, s.other AS 备注 "
+                +"FROM (tbl_sale AS s  LEFT JOIN   tbl_buy AS b  on s.code=b.code) LEFT JOIN tbl_member AS m on s.phone=m.phone "
+               + "WHERE s.sale_date between ? and ?";
             OleDbParameter[] parameters = new OleDbParameter[2];
             parameters[0] = new OleDbParameter("@1", OleDbType.Date);
             parameters[0].Value = key1;
@@ -334,6 +339,14 @@ namespace Common
             parameters[1] = new OleDbParameter("@2", OleDbType.Date);
             parameters[1].Value = key2;
             DataSet ds = AccessDBUtil.ExecuteQuery(sql, parameters);
+            return ds.Tables["ds"];
+        }
+
+        public static DataTable outHy()
+        {
+            string sql = "SELECT tmp_tblme.id as id,tmp_tblme.username as 会员名,tmp_tblme.phone as 手机,tmp_tblme.class as 会员级别,tmp_tblme.c_date as 加入日期,IIf(IsNull(tmp_tblje.金额),0,tmp_tblje.金额) as 消费总额,tmp_tblme.other as 备注 "
+                + " from (SELECT id,phone,username,class,other,c_date  FROM tbl_member) AS tmp_tblme LEFT JOIN (SELECT phone,sum(price) AS 金额 FROM tbl_sale GROUP BY phone)  AS tmp_tblje ON tmp_tblme.phone = tmp_tblje.phone ";
+            DataSet ds = AccessDBUtil.ExecuteQuery(sql);
             return ds.Tables["ds"];
         }
 

@@ -19,16 +19,7 @@ namespace jck_new
         public SaleForm()
         {
             InitializeComponent();
-            DataTable dt = ProductDao.phoneAuto().Tables["ds"];
-            string[] str_txt = new string[dt.Rows.Count];
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                str_txt[i] = dt.Rows[i]["phone"].ToString();
-            }
-            this.txt_phone.AutoCompleteCustomSource.AddRange(str_txt);
-            this.txt_phone.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            this.txt_phone.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+           
             //this.txt_phone.DataBindings
             //comb_phone.DataSource = ProductDao.phoneAuto().Tables["ds"];
            // this.comb_phone.DisplayMember = "phone";
@@ -279,6 +270,20 @@ namespace jck_new
             saleEditForm._form = this;
             saleEditForm.Owner = this;
             saleEditForm.ShowDialog();
+        }
+
+        private void SaleForm_Activated(object sender, EventArgs e)
+        {
+            DataTable dt = ProductDao.phoneAuto().Tables["ds"];
+            string[] str_txt = new string[dt.Rows.Count];
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                str_txt[i] = dt.Rows[i]["phone"].ToString();
+            }
+            this.txt_phone.AutoCompleteCustomSource.AddRange(str_txt);
+            this.txt_phone.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.txt_phone.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
     }
 }

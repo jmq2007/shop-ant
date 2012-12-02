@@ -23,7 +23,8 @@ namespace jck_new
 
             // begin displaying the splash screen before running the application form
             SplashScreen.SetBackgroundImage(jck_new.Properties.Resources.splashbg2);
-            SplashScreen.SetTitleString("我的店铺销售系统");
+            SplashScreen.SetTitleString("默默KING的店铺销售系统");
+            SplashScreen.SetCommentaryString("..数据装载中.");
             SplashScreen.BeginDisplay();
             ////////////////
             Application.Run(new MainForm());

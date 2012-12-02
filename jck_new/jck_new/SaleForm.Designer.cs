@@ -368,6 +368,7 @@
             this.Name = "SaleForm";
             this.TabText = "销售";
             this.Text = "销售";
+            this.Activated += new System.EventHandler(this.SaleForm_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.num_amount)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
