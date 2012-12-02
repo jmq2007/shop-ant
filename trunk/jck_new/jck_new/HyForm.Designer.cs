@@ -48,6 +48,10 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MenuItem_edit = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_del = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btn_search = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,10 +59,6 @@
             this.btn_all = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_other = new System.Windows.Forms.TextBox();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.MenuItem_edit = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItem_del = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +67,7 @@
             this.txt_class.Location = new System.Drawing.Point(360, 9);
             this.txt_class.Name = "txt_class";
             this.txt_class.Size = new System.Drawing.Size(36, 21);
-            this.txt_class.TabIndex = 41;
+            this.txt_class.TabIndex = 3;
             this.txt_class.Text = "1";
             // 
             // txt_phone
@@ -75,21 +75,21 @@
             this.txt_phone.Location = new System.Drawing.Point(53, 9);
             this.txt_phone.Name = "txt_phone";
             this.txt_phone.Size = new System.Drawing.Size(100, 21);
-            this.txt_phone.TabIndex = 39;
+            this.txt_phone.TabIndex = 1;
             // 
             // txt_name
             // 
             this.txt_name.Location = new System.Drawing.Point(213, 9);
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(100, 21);
-            this.txt_name.TabIndex = 38;
+            this.txt_name.TabIndex = 2;
             // 
             // add_btn
             // 
             this.add_btn.Location = new System.Drawing.Point(547, 7);
             this.add_btn.Name = "add_btn";
             this.add_btn.Size = new System.Drawing.Size(75, 23);
-            this.add_btn.TabIndex = 43;
+            this.add_btn.TabIndex = 5;
             this.add_btn.Text = "添加";
             this.add_btn.UseVisualStyleBackColor = true;
             this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
@@ -135,7 +135,7 @@
             this.lastP_btn.Location = new System.Drawing.Point(547, 277);
             this.lastP_btn.Name = "lastP_btn";
             this.lastP_btn.Size = new System.Drawing.Size(25, 28);
-            this.lastP_btn.TabIndex = 48;
+            this.lastP_btn.TabIndex = 14;
             this.lastP_btn.Text = ">|";
             this.lastP_btn.UseVisualStyleBackColor = true;
             this.lastP_btn.Click += new System.EventHandler(this.lastP_btn_Click);
@@ -145,7 +145,7 @@
             this.nextP_btn.Location = new System.Drawing.Point(516, 277);
             this.nextP_btn.Name = "nextP_btn";
             this.nextP_btn.Size = new System.Drawing.Size(25, 28);
-            this.nextP_btn.TabIndex = 47;
+            this.nextP_btn.TabIndex = 13;
             this.nextP_btn.Text = ">";
             this.nextP_btn.UseVisualStyleBackColor = true;
             this.nextP_btn.Click += new System.EventHandler(this.nextP_btn_Click);
@@ -155,7 +155,7 @@
             this.prevP_btn.Location = new System.Drawing.Point(467, 277);
             this.prevP_btn.Name = "prevP_btn";
             this.prevP_btn.Size = new System.Drawing.Size(25, 28);
-            this.prevP_btn.TabIndex = 46;
+            this.prevP_btn.TabIndex = 12;
             this.prevP_btn.Text = "<";
             this.prevP_btn.UseVisualStyleBackColor = true;
             this.prevP_btn.Click += new System.EventHandler(this.prevP_btn_Click);
@@ -165,7 +165,7 @@
             this.firstP_btn.Location = new System.Drawing.Point(436, 277);
             this.firstP_btn.Name = "firstP_btn";
             this.firstP_btn.Size = new System.Drawing.Size(25, 28);
-            this.firstP_btn.TabIndex = 45;
+            this.firstP_btn.TabIndex = 11;
             this.firstP_btn.Text = "|<";
             this.firstP_btn.UseVisualStyleBackColor = true;
             this.firstP_btn.Click += new System.EventHandler(this.firstP_btn_Click);
@@ -186,7 +186,7 @@
             this.listView1.Location = new System.Drawing.Point(12, 69);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(660, 205);
-            this.listView1.TabIndex = 44;
+            this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
@@ -220,71 +220,6 @@
             this.columnHeader7.Text = "加入时间";
             this.columnHeader7.Width = 130;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "手机",
-            "会员名",
-            "会员等级"});
-            this.comboBox1.Location = new System.Drawing.Point(53, 43);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 20);
-            this.comboBox1.TabIndex = 55;
-            // 
-            // btn_search
-            // 
-            this.btn_search.Location = new System.Drawing.Point(321, 41);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(75, 23);
-            this.btn_search.TabIndex = 56;
-            this.btn_search.Text = "查找";
-            this.btn_search.UseVisualStyleBackColor = true;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(160, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 12);
-            this.label2.TabIndex = 57;
-            this.label2.Text = "关键字:";
-            // 
-            // txt_key
-            // 
-            this.txt_key.Location = new System.Drawing.Point(213, 43);
-            this.txt_key.Name = "txt_key";
-            this.txt_key.Size = new System.Drawing.Size(100, 21);
-            this.txt_key.TabIndex = 58;
-            // 
-            // btn_all
-            // 
-            this.btn_all.Location = new System.Drawing.Point(402, 41);
-            this.btn_all.Name = "btn_all";
-            this.btn_all.Size = new System.Drawing.Size(75, 23);
-            this.btn_all.TabIndex = 59;
-            this.btn_all.Text = "所有";
-            this.btn_all.UseVisualStyleBackColor = true;
-            this.btn_all.Click += new System.EventHandler(this.btn_all_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(402, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 12);
-            this.label3.TabIndex = 60;
-            this.label3.Text = "备注:";
-            // 
-            // txt_other
-            // 
-            this.txt_other.Location = new System.Drawing.Point(436, 9);
-            this.txt_other.Name = "txt_other";
-            this.txt_other.Size = new System.Drawing.Size(100, 21);
-            this.txt_other.TabIndex = 61;
-            // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "备注";
@@ -311,6 +246,71 @@
             this.MenuItem_del.Size = new System.Drawing.Size(152, 22);
             this.MenuItem_del.Text = "删除";
             this.MenuItem_del.Click += new System.EventHandler(this.MenuItem_del_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "手机",
+            "会员名",
+            "会员等级"});
+            this.comboBox1.Location = new System.Drawing.Point(53, 43);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(100, 20);
+            this.comboBox1.TabIndex = 6;
+            // 
+            // btn_search
+            // 
+            this.btn_search.Location = new System.Drawing.Point(321, 41);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(75, 23);
+            this.btn_search.TabIndex = 8;
+            this.btn_search.Text = "查找";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(160, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 12);
+            this.label2.TabIndex = 57;
+            this.label2.Text = "关键字:";
+            // 
+            // txt_key
+            // 
+            this.txt_key.Location = new System.Drawing.Point(213, 43);
+            this.txt_key.Name = "txt_key";
+            this.txt_key.Size = new System.Drawing.Size(100, 21);
+            this.txt_key.TabIndex = 7;
+            // 
+            // btn_all
+            // 
+            this.btn_all.Location = new System.Drawing.Point(402, 41);
+            this.btn_all.Name = "btn_all";
+            this.btn_all.Size = new System.Drawing.Size(75, 23);
+            this.btn_all.TabIndex = 9;
+            this.btn_all.Text = "所有";
+            this.btn_all.UseVisualStyleBackColor = true;
+            this.btn_all.Click += new System.EventHandler(this.btn_all_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(402, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 12);
+            this.label3.TabIndex = 60;
+            this.label3.Text = "备注:";
+            // 
+            // txt_other
+            // 
+            this.txt_other.Location = new System.Drawing.Point(436, 9);
+            this.txt_other.Name = "txt_other";
+            this.txt_other.Size = new System.Drawing.Size(100, 21);
+            this.txt_other.TabIndex = 4;
             // 
             // HyForm
             // 

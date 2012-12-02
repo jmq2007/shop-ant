@@ -20,6 +20,8 @@ namespace jck_new
         public BuyForm()
         {
             InitializeComponent();
+
+            #region code自动完成
             DataTable dt = ProductDao.codeAuto().Tables["ds"];
             string[] str_txt = new string[dt.Rows.Count];
 
@@ -30,16 +32,10 @@ namespace jck_new
             this.txt_code.AutoCompleteCustomSource.AddRange(str_txt);
             this.txt_code.AutoCompleteSource = AutoCompleteSource.CustomSource;
             this.txt_code.AutoCompleteMode = AutoCompleteMode.Suggest;
+            #endregion
 
+          
 
-            DataSet ds = ProductDao.getAllLb();
-            this.num_amount.Value = 1;
-
-            for (int i=0; i < ds.Tables["ds"].Rows.Count; i++)
-            {
-                comboBox1.Items.Add(ds.Tables["ds"].Rows[i]["class"]);
-            }
-            comboBox1.SelectedIndex = 0;
             curPageIndex = 0;
             Page page = PageQueryDao.getProducts_buy(curPageIndex);
             List<Product_buy> ls = (List<Product_buy>)page.ValueList;
@@ -70,6 +66,7 @@ namespace jck_new
             lvi.SubItems.Add(p.Other.ToString());
         }
 
+        #region 分页事件
         private void nextP_btn_Click(object sender, EventArgs e)
         {
             this.listView1.Items.Clear();
@@ -143,6 +140,7 @@ namespace jck_new
             curPageIndex = page.CurPageIndex;
             totalPage = page.TotalPage;
         }
+        #endregion
 
         private void add_btn_Click(object sender, EventArgs e)
         {
@@ -185,6 +183,18 @@ namespace jck_new
             //
             p = ProductDao.getById(id);
             Insertroduct(p);
+            #region code自动完成
+            DataTable dt = ProductDao.codeAuto().Tables["ds"];
+            string[] str_txt = new string[dt.Rows.Count];
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                str_txt[i] = dt.Rows[i]["code"].ToString();
+            }
+            this.txt_code.AutoCompleteCustomSource.AddRange(str_txt);
+            this.txt_code.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.txt_code.AutoCompleteMode = AutoCompleteMode.Suggest;
+            #endregion
         }
         private void AddProduct(Product_buy p)
         {
@@ -267,6 +277,21 @@ namespace jck_new
             buyEditForm._form = this;
             buyEditForm.Owner = this;
             buyEditForm.ShowDialog();
+        }
+
+        private void BuyForm_Activated(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            #region 类别生成
+            DataSet ds = ProductDao.getAllLb();
+            this.num_amount.Value = 1;
+
+            for (int i = 0; i < ds.Tables["ds"].Rows.Count; i++)
+            {
+                comboBox1.Items.Add(ds.Tables["ds"].Rows[i]["class"]);
+            }
+            comboBox1.SelectedIndex = 0;
+            #endregion
         }
     }
 }

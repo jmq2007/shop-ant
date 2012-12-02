@@ -356,6 +356,7 @@
             this.Name = "BuyForm";
             this.TabText = "进货";
             this.Text = "进货";
+            this.Activated += new System.EventHandler(this.BuyForm_Activated);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.num_amount)).EndInit();
             this.ResumeLayout(false);

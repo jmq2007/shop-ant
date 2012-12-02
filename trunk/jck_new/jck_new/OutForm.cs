@@ -80,5 +80,10 @@ namespace jck_new
             string key2 = dateTimePicker2.Value.ToString("yyyy-MM-dd") + " 23:59:59";
             ExportExcel(ProductDao.tj_day(key1, key2).Tables["ds"]);
         }
+
+        private void btn_hy_Click(object sender, EventArgs e)
+        {
+            ExportExcel(ProductDao.outHy());
+        }
     }
 }
